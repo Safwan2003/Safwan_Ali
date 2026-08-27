@@ -1,8 +1,13 @@
 # Safwan_Ali
 
-Personal portfolio site for **Safwan Ali** — AI Engineer · Data Scientist · LLM & Full-Stack AI Developer (Karachi, Pakistan).
+Personal portfolio site for **Safwan Ali** — AI Engineer & Applied Researcher (Karachi, Pakistan).
 
-A single-page static site built with plain HTML, CSS, and a small amount of vanilla JavaScript — no build step, no dependencies.
+A single-page static site built with plain HTML, CSS, and a small amount of vanilla
+JavaScript — no build step, no dependencies. Editorial dark theme (Fraunces / Inter /
+JetBrains Mono), scroll-reveal sections, and a scroll-spy navigation.
+
+Sections: About · Research (interests, scope, featured thesis) · Experience ·
+Projects · Skills · Education · Contact.
 
 ## Structure
 

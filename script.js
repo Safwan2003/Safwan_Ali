@@ -1,20 +1,35 @@
-// Set current year in the footer
+// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Highlight the nav link for the section currently in view
-const links = document.querySelectorAll(".site-header nav a");
-const sections = [...links].map((a) => document.querySelector(a.getAttribute("href")));
+// Scroll-reveal for sections
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+);
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-const observer = new IntersectionObserver(
+// Active nav link based on section in view
+const navLinks = [...document.querySelectorAll(".site-header nav a")];
+const watched = navLinks
+  .map((a) => document.querySelector(a.getAttribute("href")))
+  .filter(Boolean);
+
+const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      links.forEach((a) => {
-        a.style.color = a.getAttribute("href") === `#${entry.target.id}` ? "var(--text)" : "";
-      });
+      navLinks.forEach((a) =>
+        a.classList.toggle("is-active", a.getAttribute("href") === `#${entry.target.id}`)
+      );
     });
   },
-  { rootMargin: "-40% 0px -55% 0px" }
+  { rootMargin: "-45% 0px -50% 0px" }
 );
-
-sections.forEach((s) => s && observer.observe(s));
+watched.forEach((s) => navObserver.observe(s));

@@ -3,135 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Safwan Ali — AI Engineer, Data Scientist, and full-stack AI developer specializing in LLMs, RAG, and multi-agent systems." />
-  <title>Safwan Ali — AI Engineer</title>
+  <meta name="description" content="Safwan Ali — AI Engineer and applied researcher working on large language models, retrieval-augmented generation, and multi-agent systems. Seeking a research-focused Master's in Computer Science / AI." />
+  <meta name="author" content="Safwan Ali" />
+  <meta property="og:title" content="Safwan Ali — AI Engineer & Applied Researcher" />
+  <meta property="og:description" content="Production AI systems and applied research in LLMs, RAG, and multi-agent systems." />
+  <meta property="og:type" content="website" />
+  <title>Safwan Ali — AI Engineer &amp; Applied Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a href="#top" class="brand">SA<span>.</span></a>
-    <nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <a href="#top" class="brand">Safwan&nbsp;Ali</a>
+    <nav aria-label="Primary">
       <a href="#about">About</a>
+      <a href="#research">Research</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-ghost" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    <a class="btn btn-ghost header-cv" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">CV ↗</a>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">Karachi, Pakistan</p>
-        <h1>Safwan Ali</h1>
-        <p class="tagline">AI Engineer · Data Scientist · LLM &amp; Full-Stack AI Developer</p>
-        <p class="lead">
-          I build production AI systems — LLM chatbots, RAG pipelines, multi-agent
-          workflows, and real-time voice agents. Currently working as an AI Engineer
-          (promoted from intern) and a final-year Computer Science student
-          specializing in Data Science, ML &amp; AI.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View projects</a>
-          <a class="btn btn-ghost" href="https://github.com/Safwan2003" target="_blank" rel="noopener">GitHub</a>
-        </div>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero reveal">
+      <p class="eyebrow">Karachi, Pakistan · Open to graduate research positions</p>
+      <h1>Safwan Ali</h1>
+      <p class="hero-role">AI Engineer &amp; Applied Researcher</p>
+      <p class="hero-lead">
+        I design and ship production AI systems — large language model applications,
+        retrieval-augmented generation pipelines, and multi-agent workflows — and I
+        study how to make them more reliable, grounded, and useful. I am seeking a
+        research-focused Master's in Computer Science / Artificial Intelligence.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#research">Research interests</a>
+        <a class="btn btn-ghost" href="#projects">Selected work</a>
+        <a class="btn btn-ghost" href="https://github.com/Safwan2003" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-      <div class="hero-photo">
-        <img src="assets/safwan.jpeg" alt="Portrait of Safwan Ali" />
+      <dl class="hero-stats">
+        <div><dt>Focus</dt><dd>LLMs · RAG · Multi-agent systems</dd></div>
+        <div><dt>Experience</dt><dd>2+ yrs shipping production AI</dd></div>
+        <div><dt>Open source</dt><dd>27 public repositories</dd></div>
+      </dl>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+      <div class="section-head">
+        <span class="kicker">01 — About</span>
+        <h2>Engineer first, researcher by inclination</h2>
+      </div>
+      <div class="prose two-col">
+        <p>
+          I am a final-year Computer Science student at Salim Habib University,
+          specializing in Data Science, Machine Learning &amp; AI, and an AI Engineer
+          who was promoted from intern while still an undergraduate. My day-to-day
+          work is building things that run in production: LLM chatbots, retrieval
+          pipelines, agentic automation, and a real-time voice agent.
+        </p>
+        <p>
+          That engineering practice keeps pulling me toward open research questions —
+          how retrieval grounding fails under distribution shift, how multi-agent
+          systems can verify their own outputs, how to evaluate generation without a
+          gold reference. I want to spend a Master's investigating these questions
+          rigorously, with a supervisor, rather than only patching around them in
+          shipping code.
+        </p>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <h2><span class="num">01</span> About</h2>
-      <div class="about-grid">
+    <!-- RESEARCH -->
+    <section id="research" class="section reveal">
+      <div class="section-head">
+        <span class="kicker">02 — Research</span>
+        <h2>Research interests &amp; scope</h2>
+      </div>
+
+      <p class="prose lede">
+        My interests sit at the intersection of applied NLP and systems: taking
+        capable-but-unreliable language models and building the retrieval,
+        verification, and evaluation scaffolding that makes them trustworthy in the
+        real world. I am equally happy working on the modeling side or the systems
+        side of that problem.
+      </p>
+
+      <div class="research-areas">
+        <article class="area">
+          <h3>Retrieval-Augmented Generation</h3>
+          <p>Grounding, citation faithfulness, retrieval failure modes, and
+             evaluation of RAG systems beyond exact-match metrics.</p>
+        </article>
+        <article class="area">
+          <h3>Multi-Agent &amp; Agentic Systems</h3>
+          <p>Coordination, self-verification, and role decomposition in LLM agent
+             workflows for multi-step reasoning and automation.</p>
+        </article>
+        <article class="area">
+          <h3>NLP for Low-Resource Languages</h3>
+          <p>Speech and text modeling for under-served languages such as Pashto and
+             Urdu — TTS, STT, and data collection under scarcity.</p>
+        </article>
+        <article class="area">
+          <h3>Vision–Language for Science</h3>
+          <p>Applying segmentation and vision models with LLM reasoning to scientific
+             imagery, calibrated against physical ground-truth constraints.</p>
+        </article>
+      </div>
+
+      <div class="feature">
+        <span class="feature-tag">Featured research project · Final-year thesis</span>
+        <h3>AI-Driven Lunar Soil Composition Analysis from Imagery and LLMs</h3>
         <p>
-          I work across the full AI development lifecycle: designing retrieval
-          pipelines, orchestrating multi-agent systems, shipping FastAPI
-          inference services, and wiring Next.js frontends on top. My work spans
-          deep learning (CNNs, ResNet, SAM 2.1), classical ML, and applied LLM
-          engineering with OpenAI, Gemini, and Claude.
+          An end-to-end pipeline developed in alignment with SUPARCO's ICUBE-Qamar
+          lunar mission. It analyzes 457 real Chang'e 3 <em>Yutu</em> rover images to
+          estimate six lunar mineral oxides (FeO, TiO₂, MgO, SiO₂, Al₂O₃, CaO),
+          calibrated to Chang'e 3 APXS ground-truth data. The system combines
+          SAM 2.1 for terrain segmentation, a ResNet-18 classifier for geological
+          units, Gemini 2.0 Flash for automated report generation, and a Streamlit
+          "Mission Control" dashboard that enforces physics-based geochemical
+          constraints (oxide-sum conservation).
         </p>
-        <ul class="facts">
-          <li><strong>Now</strong> AI Engineer — production LLM systems</li>
-          <li><strong>Study</strong> BS Computer Science — Salim Habib University (2022–2026)</li>
-          <li><strong>Focus</strong> LLMs · RAG · Multi-agent · NLP · Computer Vision</li>
-          <li><strong>Repos</strong> 27 public projects on GitHub</li>
+        <p class="stack">Python · SAM 2.1 · ResNet-18 · Gemini 2.0 Flash · Streamlit · Remote sensing</p>
+        <a class="feature-link" href="https://github.com/Safwan2003/AI-Driven-Lunar-Soil-Composition-Analysis-Using-Imagery-and-Large-Language-Models" target="_blank" rel="noopener">Read the project ↗</a>
+      </div>
+
+      <div class="currently">
+        <h4>Currently exploring</h4>
+        <ul>
+          <li>Reference-free evaluation of retrieval-grounded answers.</li>
+          <li>Verifier agents that critique and repair peer-agent output before it ships.</li>
+          <li>Practical data pipelines for Pashto speech corpora.</li>
         </ul>
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <h2><span class="num">02</span> Experience</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section reveal">
+      <div class="section-head">
+        <span class="kicker">03 — Experience</span>
+        <h2>Building AI in production</h2>
+      </div>
       <div class="entry">
         <div class="entry-head">
-          <h3>AI Engineer <span class="muted">— AI Solutions Agency</span></h3>
+          <h3>AI Engineer <span class="muted">/ AI Solutions Agency</span></h3>
           <span class="date">Aug 2024 — Present</span>
         </div>
-        <p class="muted">Promoted from AI Intern to AI Engineer within the same engagement.</p>
-        <ul>
-          <li>Built <strong>Voxreach</strong>, an outbound SDR voice-agent platform: STT → LLM → TTS over LiveKit real-time transport, from Colab GPU prototype to a containerized self-hosted production deployment.</li>
-          <li>Engineered a <strong>multi-agent lead-generation system</strong> (FastAPI + MySQL, async) for Busman AI — a commercial SaaS: AI query generation, Crawl4AI/BeautifulSoup scraping with Google-Dorking fallback, LLM lead scoring, cached Search API, CSV export via a real-time Tailwind frontend.</li>
-          <li>Built and deployed <strong>LLM chatbots</strong> for clients with OpenAI GPT, Gemini, and Claude, using LangChain/LlamaIndex for context management and RAG.</li>
-          <li>Developed multi-agent workflows with <strong>AutoGen</strong> and <strong>AgentScope</strong> to automate multi-step business processes.</li>
-          <li>Shipped production REST APIs (FastAPI) for model inference, with Next.js frontends for end-to-end AI web apps.</li>
+        <p class="muted entry-sub">Promoted from AI Intern to AI Engineer within the same engagement.</p>
+        <ul class="entry-list">
+          <li><strong>Voxreach — outbound voice-agent platform.</strong> Built an STT → LLM → TTS pipeline over LiveKit real-time transport, taking it from a validated Colab GPU prototype to a containerized, self-hosted production deployment.</li>
+          <li><strong>Multi-agent lead-generation system (commercial SaaS).</strong> Engineered an async FastAPI + MySQL service that generates platform-specific search queries, scrapes and enriches company data with Crawl4AI/BeautifulSoup (with a Google-Dorking fallback), and qualifies leads via LLM scoring of buying signals and red flags.</li>
+          <li><strong>Client LLM chatbots &amp; RAG.</strong> Shipped chatbots on OpenAI GPT, Gemini, and Claude, using LangChain / LlamaIndex for context management and retrieval pipelines.</li>
+          <li><strong>Agentic automation.</strong> Developed multi-agent workflows with AutoGen and AgentScope to automate multi-step business processes.</li>
+          <li><strong>Serving infrastructure.</strong> Built production FastAPI inference APIs with Next.js frontends for end-to-end AI web applications.</li>
         </ul>
       </div>
     </section>
 
-    <section id="projects" class="section">
-      <h2><span class="num">03</span> Selected Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="section reveal">
+      <div class="section-head">
+        <span class="kicker">04 — Projects</span>
+        <h2>Selected work</h2>
+      </div>
       <div class="cards">
         <article class="card">
           <h3>Voxreach — AI Voice Agent Platform</h3>
-          <p>Outbound SDR voice pipeline: STT + LLM + TTS over LiveKit real-time transport, with a validated Colab GPU prototype track and a containerized (Podman) self-hosted production track, each with its own browser LiveKit connection tester.</p>
+          <p>Outbound SDR voice pipeline: STT + LLM + TTS over LiveKit real-time transport, with a Colab GPU prototype track and a containerized self-hosted production track, each with a browser LiveKit connection tester.</p>
           <p class="stack">Python · LiveKit · STT/TTS · LLM</p>
-          <a href="https://github.com/Safwan2003/voice" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://github.com/Safwan2003/voice" target="_blank" rel="noopener">Repository ↗</a>
         </article>
         <article class="card">
-          <h3>AI Leads Scraper — Busman AI engine</h3>
-          <p>Multi-agent FastAPI server that generates platform-specific search queries, scrapes and enriches leads with Crawl4AI, scores them via LLM (litellm on Groq/OpenRouter), caches Google Search results, and stores/exports via MySQL + CSV.</p>
+          <h3>AI Leads Scraper — Lead-gen engine</h3>
+          <p>Multi-agent FastAPI server that generates AI-crafted search queries per platform, scrapes and enriches leads with Crawl4AI, scores them via LLM (litellm on Groq / OpenRouter), caches Search API results, and exports via MySQL + CSV.</p>
           <p class="stack">Python · FastAPI · Crawl4AI · MySQL · litellm</p>
-          <a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener">Repository →</a>
-        </article>
-        <article class="card">
-          <h3>AI-Driven Lunar Soil Composition Analysis</h3>
-          <p>Final-year project aligned with SUPARCO's ICUBE-Qamar mission. End-to-end pipeline over 457 Chang'e 3 Yutu rover images estimating 6 mineral oxides, calibrated to APXS ground truth. SAM 2.1 segmentation, ResNet-18 classifier, Gemini 2.0 Flash reporting, Streamlit Mission Control dashboard.</p>
-          <p class="stack">Python · SAM 2.1 · ResNet-18 · Gemini 2.0 Flash · Streamlit</p>
-          <a href="https://github.com/Safwan2003/AI-Driven-Lunar-Soil-Composition-Analysis-Using-Imagery-and-Large-Language-Models" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener">Repository ↗</a>
         </article>
         <article class="card">
           <h3>Vidra — AI Video Director</h3>
           <p>Agentic pipeline where collaborating AI agents write, illustrate, animate, and narrate a story to generate studio-quality marketing videos from a single text prompt.</p>
           <p class="stack">Python · Multi-agent · Generative media</p>
-          <a href="https://github.com/Safwan2003/Vidra-Your-AI-Video-Director" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://github.com/Safwan2003/Vidra-Your-AI-Video-Director" target="_blank" rel="noopener">Repository ↗</a>
         </article>
         <article class="card">
           <h3>Summariz — Live Transcription &amp; Summarization</h3>
-          <p>Live video streaming web app combining real-time speech-to-text transcription with AI-powered summarization.</p>
+          <p>Live video-streaming web app combining real-time speech-to-text transcription with AI-powered summarization.</p>
           <p class="stack">Python · STT · LLM</p>
-          <a href="https://github.com/Safwan2003/Summariz-Live-Streaming-with-Real-Time-Transcription-Summarization-Built-by-AFS-Solutions" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://github.com/Safwan2003/Summariz-Live-Streaming-with-Real-Time-Transcription-Summarization-Built-by-AFS-Solutions" target="_blank" rel="noopener">Repository ↗</a>
+        </article>
+        <article class="card">
+          <h3>Pashto TTS / STT</h3>
+          <p>Text-to-speech and speech-to-text experiments for the Pashto language — a low-resource NLP effort spanning data collection and modeling.</p>
+          <p class="stack">Python · Speech · Low-resource NLP</p>
+          <a href="https://github.com/Safwan2003/pashto-tts" target="_blank" rel="noopener">Repository ↗</a>
         </article>
         <article class="card">
           <h3>Heart Disease Prediction — Random Forest</h3>
           <p>Deployed clinical risk classifier (Streamlit Cloud, real-time inference) with feature selection and hyperparameter tuning.</p>
           <p class="stack">Python · Scikit-learn · Streamlit</p>
-          <a href="https://github.com/Safwan2003/RandomForest_Heart_Disease_Prediction" target="_blank" rel="noopener">Repository →</a>
+          <a href="https://github.com/Safwan2003/RandomForest_Heart_Disease_Prediction" target="_blank" rel="noopener">Repository ↗</a>
         </article>
       </div>
-      <p class="more"><a href="https://github.com/Safwan2003?tab=repositories" target="_blank" rel="noopener">See all 27 repositories on GitHub →</a></p>
+      <p class="more"><a href="https://github.com/Safwan2003?tab=repositories" target="_blank" rel="noopener">All 27 repositories on GitHub ↗</a></p>
     </section>
 
-    <section id="skills" class="section">
-      <h2><span class="num">04</span> Skills</h2>
+    <!-- SKILLS -->
+    <section id="skills" class="section reveal">
+      <div class="section-head">
+        <span class="kicker">05 — Skills</span>
+        <h2>Technical toolkit</h2>
+      </div>
       <div class="skills-grid">
         <div><h4>Languages</h4><p>Python · JavaScript</p></div>
         <div><h4>LLM / AI</h4><p>LangChain · LlamaIndex · AutoGen · AgentScope · OpenAI · Gemini · Claude · RAG · LiveKit · litellm</p></div>
         <div><h4>ML / Deep Learning</h4><p>TensorFlow · Keras · Scikit-learn · XGBoost · CNNs · SVMs · SAM 2.1 · ResNet</p></div>
-        <div><h4>Data</h4><p>Pandas · NumPy · Matplotlib · Seaborn · Plotly · Crawl4AI · BeautifulSoup4</p></div>
+        <div><h4>Data &amp; Scraping</h4><p>Pandas · NumPy · Matplotlib · Seaborn · Plotly · Crawl4AI · BeautifulSoup4</p></div>
         <div><h4>Backend &amp; APIs</h4><p>FastAPI · Node.js · Express.js</p></div>
         <div><h4>Frontend</h4><p>Next.js · React · Streamlit</p></div>
         <div><h4>Databases</h4><p>PostgreSQL · MongoDB · MySQL</p></div>
@@ -139,20 +231,50 @@
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2><span class="num">05</span> Contact</h2>
-      <p class="lead">Open to research assistant roles and graduate opportunities in AI. The fastest way to reach me:</p>
+    <!-- EDUCATION -->
+    <section id="education" class="section reveal">
+      <div class="section-head">
+        <span class="kicker">06 — Education</span>
+        <h2>Education</h2>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>BS Computer Science <span class="muted">/ Salim Habib University, Karachi</span></h3>
+          <span class="date">2022 — 2026</span>
+        </div>
+        <p class="muted entry-sub">Specialization in Data Science, Machine Learning &amp; AI.</p>
+        <p class="prose">
+          Relevant coursework: Machine Learning, Deep Learning, Database Systems,
+          Statistics &amp; Probability, Data Structures &amp; Algorithms. Final-year
+          thesis: <em>AI-Driven Lunar Soil Composition Analysis from Imagery and Large
+          Language Models</em> (see Research).
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section reveal">
+      <div class="section-head">
+        <span class="kicker">07 — Contact</span>
+        <h2>Get in touch</h2>
+      </div>
+      <p class="prose lede">
+        I am actively looking for a research assistant position or a funded Master's
+        seat in AI, and I am glad to discuss collaborations. Email is the surest way
+        to reach me.
+      </p>
       <ul class="contact-list">
-        <li><a href="mailto:safwanalimukaddam@gmail.com">safwanalimukaddam@gmail.com</a></li>
-        <li><a href="https://github.com/Safwan2003" target="_blank" rel="noopener">github.com/Safwan2003</a></li>
-        <li><a href="https://linkedin.com/in/safwan-ali-281aa1275" target="_blank" rel="noopener">linkedin.com/in/safwan-ali</a></li>
-        <li><a href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">Download résumé (PDF)</a></li>
+        <li><span>Email</span><a href="mailto:safwanalimukaddam@gmail.com">safwanalimukaddam@gmail.com</a></li>
+        <li><span>GitHub</span><a href="https://github.com/Safwan2003" target="_blank" rel="noopener">github.com/Safwan2003</a></li>
+        <li><span>LinkedIn</span><a href="https://linkedin.com/in/safwan-ali-281aa1275" target="_blank" rel="noopener">linkedin.com/in/safwan-ali</a></li>
+        <li><span>CV</span><a href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">Download PDF ↗</a></li>
       </ul>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Safwan Ali · Built with plain HTML &amp; CSS</p>
+    <p>© <span id="year"></span> Safwan Ali</p>
+    <p>Built with plain HTML &amp; CSS · <a href="https://github.com/Safwan2003/Safwan_Ali" target="_blank" rel="noopener">Source</a></p>
   </footer>
 
   <script src="script.js"></script>
