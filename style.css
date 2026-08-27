@@ -238,7 +238,25 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 .feature p { color: var(--text-dim); max-width: 70ch; }
 .feature p + p { margin-top: 1rem; }
 .feature .stack { color: var(--text-mute); }
-.feature-link { display: inline-block; margin-top: 1.4rem; font-weight: 600; font-size: 0.9rem; }
+.feature-link { display: inline-block; margin-top: 1.4rem; margin-right: 1.5rem; font-weight: 600; font-size: 0.9rem; }
+
+.feature-figure {
+  margin: 1.75rem 0 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fdfaf6;
+}
+.feature-figure img { display: block; width: 100%; height: auto; }
+.feature-figure figcaption {
+  padding: 0.7rem 1rem;
+  font-size: 0.78rem;
+  color: var(--text-mute);
+  background: var(--bg-card);
+  border-top: 1px solid var(--line);
+}
+
+.feature + .feature { margin-top: 1.75rem; }
 
 .currently { margin-top: 2.5rem; }
 .currently h4 {

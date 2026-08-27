@@ -6,7 +6,7 @@ A single-page static site built with plain HTML, CSS, and a small amount of vani
 JavaScript — no build step, no dependencies. Editorial dark theme (Fraunces / Inter /
 JetBrains Mono), scroll-reveal sections, and a scroll-spy navigation.
 
-Sections: About · Research (interests, scope, featured thesis) · Experience ·
+Sections: About · Research (interests, scope, featured papers) · Experience ·
 Projects · Skills · Education · Contact.
 
 ## Structure
@@ -18,7 +18,9 @@ Safwan_Ali/
 ├── script.js       # footer year + scroll-spy nav
 └── assets/
     ├── safwan.jpeg
-    └── SafwanAli_Resume.pdf
+    ├── SafwanAli_Resume.pdf
+    ├── Med-GReF_Paper.pdf          # featured research paper
+    └── med-gref-architecture.png   # Med-GReF architecture figure
 ```
 
 ## Run locally

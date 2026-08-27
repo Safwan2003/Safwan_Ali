@@ -89,17 +89,23 @@
 
       <p class="prose lede">
         My interests sit at the intersection of applied NLP and systems: taking
-        capable-but-unreliable language models and building the retrieval,
-        verification, and evaluation scaffolding that makes them trustworthy in the
-        real world. I am equally happy working on the modeling side or the systems
-        side of that problem.
+        capable-but-unreliable vision-language models and building the fusion,
+        verification, and evaluation scaffolding that makes their reasoning
+        trustworthy — especially in high-stakes domains like medical imaging. I am
+        equally happy working on the modeling side or the systems side of that
+        problem.
       </p>
 
       <div class="research-areas">
         <article class="area">
-          <h3>Retrieval-Augmented Generation</h3>
-          <p>Grounding, citation faithfulness, retrieval failure modes, and
-             evaluation of RAG systems beyond exact-match metrics.</p>
+          <h3>Grounding &amp; Hallucination Verification</h3>
+          <p>Detecting when a model's stated conclusion is not entailed by its own
+             retrieved evidence; NLI-style verifiers, reference-free evaluation.</p>
+        </article>
+        <article class="area">
+          <h3>Multimodal Fusion for Medical Reasoning</h3>
+          <p>Evidence-guided fusion of vision, text, radiomic, and explainability
+             features for clinically meaningful vision-language reasoning.</p>
         </article>
         <article class="area">
           <h3>Multi-Agent &amp; Agentic Systems</h3>
@@ -111,15 +117,42 @@
           <p>Speech and text modeling for under-served languages such as Pashto and
              Urdu — TTS, STT, and data collection under scarcity.</p>
         </article>
-        <article class="area">
-          <h3>Vision–Language for Science</h3>
-          <p>Applying segmentation and vision models with LLM reasoning to scientific
-             imagery, calibrated against physical ground-truth constraints.</p>
-        </article>
       </div>
 
       <div class="feature">
-        <span class="feature-tag">Featured research project · Final-year thesis</span>
+        <span class="feature-tag">Featured research · Workshop paper — under submission</span>
+        <h3>Med-GReF: Evidence-Guided Multimodal Fusion &amp; Hallucination Verification for Medical Vision-Language Reasoning</h3>
+        <p>
+          Vision-language models applied to medical imaging often produce fluent
+          claims that aren't backed by the evidence in front of them — a failure
+          mode with direct patient-safety consequences. Med-GReF pairs a frozen
+          vision-language backbone with quantitative radiomics, Grad-CAM visual
+          explanations, an evidence-guided cross-attention fusion network, and a
+          dedicated natural-language-inference verifier that scores whether a stated
+          conclusion is actually entailed by the retrieved evidence.
+        </p>
+        <p>
+          On a held-out, article-grouped test split of a PubMed-Central women's-health
+          imaging corpus (every ablation row reported as mean ± SD over 3 seeds), the
+          full configuration lifts accuracy from 0.817 to <strong>0.912</strong> and
+          ROC-AUC from near-chance (0.570) to <strong>0.881</strong>, and cuts
+          undetected evidence/conclusion contradictions by roughly <strong>2.4×</strong>
+          (16.6% → 7.0%) — catching ~6× as many hallucinations as a confidence-threshold
+          baseline. Negative and inconclusive findings (no calibration gain, an earlier
+          single-seed trade-off, silent evaluation-split bugs) are reported rather than
+          dropped. Full data-fetching, vetting, and training pipeline released.
+        </p>
+        <figure class="feature-figure">
+          <img src="assets/med-gref-architecture.png" alt="Med-GReF architecture: frozen vision-language backbone, radiomics and Grad-CAM feature streams, evidence-guided cross-attention fusion, and an NLI hallucination verifier." loading="lazy" />
+          <figcaption>Med-GReF architecture — evidence-guided fusion with a downstream hallucination verifier.</figcaption>
+        </figure>
+        <p class="stack">PyTorch · BiomedCLIP · PubMedBERT · MedGemma-4B (LoRA) · cross-attention fusion · NLI verifier · radiomics · Grad-CAM</p>
+        <a class="feature-link" href="https://github.com/Safwan2003/Med-Gref" target="_blank" rel="noopener">Code &amp; results ↗</a>
+        <a class="feature-link" href="assets/Med-GReF_Paper.pdf" target="_blank" rel="noopener">Read the paper (PDF) ↗</a>
+      </div>
+
+      <div class="feature">
+        <span class="feature-tag">Featured research · Final-year thesis</span>
         <h3>AI-Driven Lunar Soil Composition Analysis from Imagery and LLMs</h3>
         <p>
           An end-to-end pipeline developed in alignment with SUPARCO's ICUBE-Qamar
@@ -138,6 +171,7 @@
       <div class="currently">
         <h4>Currently exploring</h4>
         <ul>
+          <li>Clinician spot-checks and external-dataset validation for Med-GReF.</li>
           <li>Reference-free evaluation of retrieval-grounded answers.</li>
           <li>Verifier agents that critique and repair peer-agent output before it ships.</li>
           <li>Practical data pipelines for Pashto speech corpora.</li>
