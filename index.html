@@ -5,14 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Safwan Ali — AI Engineer and applied researcher. Production LLM, RAG, and multi-agent systems; research on trustworthy medical vision-language reasoning." />
   <meta name="author" content="Safwan Ali" />
-  <meta property="og:title" content="Safwan Ali — AI Engineer & Applied Researcher" />
+  <meta property="og:title" content="Safwan Ali — AI Engineer &amp; Applied Researcher" />
   <meta property="og:description" content="Production AI systems and applied research in LLMs, RAG, multi-agent systems, and trustworthy generation." />
   <meta property="og:type" content="website" />
   <title>Safwan Ali — AI Engineer &amp; Applied Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&amp;family=Sora:wght@400;500;600&amp;family=Onest:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="src/shaders/threeui.css" />
+  <style>
+    .shader-frame {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: #080808;
+    }
+    .shader-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #080808;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#work">Skip to content</a>
@@ -28,21 +47,15 @@
     <a class="nav__cta" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">CV ↗</a>
   </nav>
 
-  <!-- ============ PORTAL HERO ============ -->
-  <section class="portal" id="top">
-    <div class="portal-stage">
-      <div class="portal-photo" role="img" aria-label="Safwan Ali"></div>
-      <div class="portal-duotone" aria-hidden="true"></div>
-      <div class="portal-veil" aria-hidden="true"></div>
-      <div class="portal-panel portal-panel--l" aria-hidden="true"></div>
-      <div class="portal-panel portal-panel--r" aria-hidden="true"></div>
-      <span class="portal-dot portal-dot--a" aria-hidden="true"></span>
-      <span class="portal-dot portal-dot--b" aria-hidden="true"></span>
-      <h1 class="portal-title"><span class="pt-a">Safwan</span><span class="pt-b">Ali</span></h1>
-      <p class="portal-meta portal-meta--tl">AI Engineer — Applied Researcher</p>
-      <p class="portal-meta portal-meta--tr">Karachi, PK</p>
-      <p class="portal-meta portal-meta--bl">Portfolio / 2026</p>
-      <p class="portal-meta portal-meta--br">Scroll to open ↓</p>
+  <!-- ============ THREEUI KAGE LANDING PAGE SCENE HERO ============ -->
+  <section id="top" style="width: 100%; height: 100vh; position: relative;">
+    <div className="shader-frame" class="shader-frame">
+      <iframe
+        src="landing-pages/kage.html"
+        title="Kage — Where stillness reveals the unseen"
+        loading="eager"
+        allow="autoplay; fullscreen"
+      ></iframe>
     </div>
   </section>
 
