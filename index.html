@@ -13,24 +13,83 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&amp;family=Sora:wght@400;500;600&amp;family=Onest:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="src/shaders/threeui.css" />
   <style>
-    .shader-frame {
-      width: 100%;
-      height: 100vh;
+    /* ---- Hero ---- */
+    .hero {
       position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.15rem;
       overflow: hidden;
-      background: #080808;
+      padding: 96px clamp(20px, 6vw, 90px) 120px;
+      background:
+        radial-gradient(120% 90% at 18% 10%, #14191e, transparent 58%),
+        radial-gradient(120% 120% at 88% 100%, #0a0e12, transparent 55%),
+        var(--ground);
     }
-    .shader-frame iframe {
+    .hero__kicker { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--amber); }
+    .hero__name {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: clamp(46px, 11vw, 150px);
+      line-height: 0.92;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .hero__lede { max-width: 48ch; color: var(--ink-2); font-size: clamp(13px, 1.8vw, 16px); line-height: 1.75; }
+    .hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .hero__scroll {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-      background: #080808;
+      left: clamp(20px, 6vw, 90px);
+      bottom: 30px;
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
     }
+    /* Featured project (Kage) */
+    .feature {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(20px, 4vw, 48px);
+      align-items: center;
+      margin: 2rem 0 3.5rem;
+      background: var(--ground-2);
+      border: 1px solid var(--hair);
+      border-radius: 16px;
+      padding: clamp(22px, 4vw, 40px);
+    }
+    .feature h3 { font-size: clamp(22px, 3.6vw, 34px); font-weight: 700; color: var(--ink); margin-bottom: 0.6rem; }
+    .feature p { font-size: 13.5px; line-height: 1.7; color: var(--ink-2); margin-bottom: 1rem; }
+    .feature .stack { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 1.2rem; }
+    .feature__frame {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--hair);
+      background:
+        radial-gradient(80% 60% at 62% 24%, rgba(224, 35, 28, 0.5), transparent 60%),
+        radial-gradient(50% 40% at 40% 88%, rgba(201, 162, 74, 0.22), transparent 70%),
+        #05070a;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 1rem;
+    }
+    .feature__frame span {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: clamp(28px, 5vw, 52px);
+      color: rgba(223, 231, 224, 0.92);
+      line-height: 1;
+    }
+    @media (max-width: 820px) { .feature { grid-template-columns: 1fr; } }
     .exp-list { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem; }
     .exp-item { border-left: 2px solid var(--amber); padding-left: 1.5rem; }
     .exp-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; margin-bottom: 0.5rem; }
@@ -62,17 +121,22 @@
     <a class="nav__cta" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">CV ↗</a>
   </nav>
 
-  <!-- ============ THREEUI KAGE LANDING PAGE HERO ============ -->
-  <section id="top" style="width: 100%; height: 100vh; position: relative;">
-    <div class="shader-frame">
-      <iframe
-        src="landing-pages/kage.html"
-        title="Kage — Where stillness reveals the unseen"
-        loading="eager"
-        allow="autoplay; fullscreen"
-      ></iframe>
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <span class="hero__kicker">AI Engineer · Data Scientist · Karachi, PK</span>
+    <h1 class="hero__name">Safwan<br />Ali</h1>
+    <p class="hero__lede">
+      Production AI systems &amp; applied research — LLMs, RAG, real-time voice
+      agents, agentic workflows, computer vision, and trustworthy medical
+      vision-language reasoning.
+    </p>
+    <div class="hero__actions">
+      <a class="btn" href="#work">See the work</a>
+      <a class="btn" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">Download CV ↗</a>
+      <a class="btn" href="landing-pages/kage.html" target="_blank" rel="noopener">Kage — WebGL scene ↗</a>
     </div>
-  </section>
+    <span class="hero__scroll" aria-hidden="true">Scroll ↓</span>
+  </header>
 
   <main>
     <!-- ============ SUMMARY ============ -->
@@ -176,6 +240,28 @@
     <!-- ============ SELECTED WORK ============ -->
     <section class="releases reveal" id="work">
       <p class="label"><b>04</b> — Selected Projects</p>
+
+      <!-- Featured: Kage procedural WebGL scene -->
+      <div class="feature">
+        <div>
+          <h3>Kage — a live WebGL night scene</h3>
+          <p>
+            A full Kyoto mountain temple rendered entirely at runtime: procedural
+            geometry, canvas-generated textures and normal maps, custom
+            post-processing, scroll-driven cinematography, and an adaptive
+            resolution loop that holds frame rate on low-end GPUs. No photos, no
+            video — only Three.js and two subset fonts.
+          </p>
+          <p class="stack">Three.js · WebGL · GLSL · Canvas 2D · Procedural generation</p>
+          <div class="btn-row" style="margin-top: 0;">
+            <a class="btn" href="landing-pages/kage.html" target="_blank" rel="noopener">Launch experience ↗</a>
+          </div>
+        </div>
+        <a class="feature__frame" href="landing-pages/kage.html" target="_blank" rel="noopener" aria-label="Launch the Kage WebGL scene">
+          <span>影<br />Kage</span>
+        </a>
+      </div>
+
       <div class="releases-grid">
         <div class="releases-lead">
           <h2>A working catalogue.</h2>

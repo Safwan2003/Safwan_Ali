@@ -1,5 +1,6 @@
 /* ============================================================
-   Safwan Ali — portal / deck portfolio
+   Safwan Ali — portfolio
+   WebGL hero (landing-pages/kage.html) + editorial deck portfolio
    Ground #0A0C0E · ink #EDE7DC · amber #E8913C · teal #2E6B72
    Syne (display) · Sora (small type)
    Accents live only on type, a dot, or a rule — never a filled area.
@@ -147,125 +148,6 @@ main { display: block; }
   padding: clamp(80px, 12vw, 150px) clamp(16px, 5vw, 80px);
 }
 
-/* ============ PORTAL HERO ============ */
-.portal { position: relative; height: 100vh; }
-html.motion .portal { height: 260vh; }
-
-.portal-stage {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  isolation: isolate;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--ground);
-}
-html.motion .portal-stage { position: sticky; top: 0; }
-
-.portal-photo {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    radial-gradient(130% 90% at 26% 16%, #191d22, transparent 58%),
-    radial-gradient(120% 110% at 82% 88%, #0d1116, transparent 55%),
-    #0b0e11;
-}
-.portal-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
-html.motion .portal-photo {
-  transform: scale(calc(1.1 - var(--p, 0) * 0.1));
-  transform-origin: center;
-}
-
-.portal-duotone {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(120deg, var(--amber), var(--teal));
-  mix-blend-mode: overlay;
-  opacity: 0.16;
-  pointer-events: none;
-}
-html.motion .portal-duotone { opacity: calc(var(--p, 0) * 0.32); }
-
-.portal-veil {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: radial-gradient(120% 100% at 50% 42%, transparent 36%, rgba(0, 0, 0, 0.74) 100%);
-  pointer-events: none;
-}
-
-.portal-panel {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 50.5%;
-  background: var(--ground);
-  z-index: 4;
-  display: none;
-}
-.portal-panel--l { left: 0; }
-.portal-panel--r { right: 0; }
-html.motion .portal-panel { display: block; }
-html.motion .portal-panel--l { transform: translateX(calc(var(--p, 0) * -106%)); }
-html.motion .portal-panel--r { transform: translateX(calc(var(--p, 0) * 106%)); }
-
-.portal-dot {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 9px;
-  height: 9px;
-  margin: -4.5px 0 0 -4.5px;
-  border-radius: 50%;
-  z-index: 5;
-}
-.portal-dot--a { background: var(--amber); box-shadow: 0 0 16px 3px rgba(232, 145, 60, 0.55); margin-left: -12px; }
-.portal-dot--b { background: var(--teal);  box-shadow: 0 0 16px 3px rgba(46, 107, 114, 0.6); margin-left: 3px; }
-html.motion .portal-dot--a { transform: translate(calc(var(--p, 0) * -42vw), calc(var(--p, 0) * -34vh)); }
-html.motion .portal-dot--b { transform: translate(calc(var(--p, 0) * 42vw), calc(var(--p, 0) * 34vh)); }
-
-.portal-title {
-  position: relative;
-  z-index: 6;
-  display: flex;
-  gap: 0.28em;
-  font-family: "Syne", sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(30px, 6.6vw, 92px);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  color: var(--ink);
-  transform-origin: center;
-}
-.pt-a, .pt-b { display: inline-block; }
-html.motion .portal-title {
-  transform: scale(calc(1 + var(--p, 0) * 0.18));
-  letter-spacing: calc(0.02em - var(--p, 0) * 0.05em);
-}
-html.motion .pt-a { transform: translateX(calc(var(--p, 0) * -55%)); }
-html.motion .pt-b { transform: translateX(calc(var(--p, 0) * 55%)); }
-
-.portal-meta {
-  position: absolute;
-  z-index: 7;
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--ink-2);
-  padding: 1.1rem clamp(16px, 4vw, 34px);
-}
-.portal-meta--tl { top: 58px; left: 0; }
-.portal-meta--tr { top: 58px; right: 0; text-align: right; }
-.portal-meta--bl { bottom: 0; left: 0; }
-.portal-meta--br { bottom: 0; right: 0; text-align: right; }
-html.motion .portal-meta--br { opacity: calc(1 - var(--p, 0) * 3); }
-
 /* ============ STATEMENT ============ */
 .statement { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
 .statement-inner { position: relative; z-index: 2; }
@@ -388,31 +270,6 @@ html.motion .portal-meta--br { opacity: calc(1 - var(--p, 0) * 3); }
 }
 .deck-dots .deck-dot.is-on { background: var(--amber); border-color: var(--amber); }
 
-/* ============ ROSTER ============ */
-.roster { border-bottom: 1px solid var(--hair); }
-.roster-row {
-  display: grid;
-  grid-template-columns: 170px 1fr auto;
-  gap: 1.25rem;
-  align-items: baseline;
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--hair);
-}
-.roster-tag {
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--amber);
-}
-.roster-name {
-  font-family: "Syne", sans-serif;
-  font-weight: 600;
-  font-size: clamp(20px, 3.2vw, 30px);
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
-.roster-count { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
-
 /* ============ DATES ============ */
 .dates { width: 100%; border-collapse: collapse; }
 .dates th {
@@ -499,8 +356,6 @@ html.motion .reveal.in { opacity: 1; transform: none; }
 
 @media (max-width: 720px) {
   .nav__links { display: none; }
-  .roster-row { grid-template-columns: 1fr auto; }
-  .roster-tag { grid-column: 1 / -1; }
 
   .dates thead { display: none; }
   .dates, .dates tbody, .dates tr, .dates td { display: block; width: 100%; }

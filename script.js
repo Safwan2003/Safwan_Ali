@@ -11,35 +11,12 @@
   /* ---------- Motion-gated effects ---------- */
   if (!reduced) {
     root.classList.add("motion");
-    initPortal();
     initReveal();
     initStatementDrift();
   }
 
   /* The deck is an interactive control — available in every render. */
   initDeck();
-
-  /* ============ Portal: scroll-position driven, fully reversible ============ */
-  function initPortal() {
-    var portal = document.querySelector(".portal");
-    var stage = document.querySelector(".portal-stage");
-    if (!portal || !stage) return;
-    var ticking = false;
-
-    function apply() {
-      ticking = false;
-      var rect = portal.getBoundingClientRect();
-      var dist = portal.offsetHeight - window.innerHeight;
-      var p = dist > 0 ? clamp(-rect.top / dist, 0, 1) : 0;
-      stage.style.setProperty("--p", p.toFixed(4));
-    }
-    function onScroll() {
-      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", apply);
-    apply();
-  }
 
   /* ============ Reveal: fires once, never un-reveals ============ */
   function initReveal() {

@@ -1,37 +1,38 @@
 # Safwan_Ali
 
-Personal portfolio for **Safwan Ali** — AI Engineer & Applied Researcher (Karachi, Pakistan).
+Personal portfolio for **Safwan Ali** — AI Engineer & Data Scientist (Karachi, Pakistan).
 
-A single-page static site: plain HTML, one CSS file, one vanilla-JS file. No build
-step, no dependencies, no framework. Google Fonts (Syne + Sora) are the only remote
-asset.
+A single-page static site: plain HTML, one CSS file, one vanilla-JS file. **No build
+step, no dependencies, no framework.** Google Fonts (Syne + Sora + Onest) are the
+only remote asset.
 
 ## Concept
 
-A dark record-label style. The hero is a **portal** — two panels part on scroll to
-uncover the field behind while the wordmark grows, tightens its tracking, and its
-two halves travel to opposite edges. Every portal value is bound to scroll
-*position*, so it closes again on the way back up. Below: a full-height statement,
-a **throwable card deck** for the project catalogue (drag, or arrow keys), a
-hairline practice roster, a timeline table, and a close whose wordmark is cropped
-by the page edge.
+A dark, editorial record-label style. The hero is **Kage** — a fully procedural
+WebGL night scene (`landing-pages/kage.html`, Three.js, no photos or video),
+lazy-mounted only when it scrolls into view so the page is readable instantly and
+on any device. Below the hero: a professional summary, the Med-GReF research
+paper, experience, a **throwable card deck** for the project catalogue (drag, or
+arrow keys), a technical-skills grid, a timeline / education table, and a contact
+close.
 
-Accessibility: all scroll/reveal motion is gated behind a `motion` class added only
-when `prefers-reduced-motion` is not set, so the reduced-motion and no-JS renders
-are the finished page. The deck is keyboard-operable.
+Accessibility: all scroll/reveal motion is gated behind a `motion` class added
+only when `prefers-reduced-motion` is not set, so the reduced-motion and no-JS
+renders are the finished page. The deck is keyboard-operable.
 
 ## Structure
 
 ```
 Safwan_Ali/
-├── index.html      # all page content
-├── style.css       # palette, portal + deck styling, responsive rules
-├── script.js       # scroll-driven portal, reveal observer, throwable deck
+├── index.html                     # all page content
+├── style.css                      # palette, layout, deck + research styling
+├── script.js                      # hero lazy-mount, reveal observer, throwable deck
+├── landing-pages/
+│   ├── kage.html                  # procedural WebGL hero scene
+│   └── secret-pathways-assets/    # fonts + three.js + foreground art for kage.html
 └── assets/
     ├── SafwanAli_Resume.pdf
-    ├── Med-GReF_Paper.pdf
-    ├── med-gref-architecture.png
-    └── safwan.jpeg              # AMD hackathon certificate (not currently used)
+    └── Med-GReF_Paper.pdf
 ```
 
 ## Palette
