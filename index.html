@@ -280,6 +280,29 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .gate-stats div b{ display:block; font-size:clamp(22px,2.1vw,32px); font-weight:300; letter-spacing:-.02em; }
 .gate-stats div span{ font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
 
+/* — a labelled capability strip, reused in About and Projects */
+.stack-strip{ margin-top:clamp(30px,5vh,60px); }
+.stack-row{ display:grid; grid-template-columns:minmax(0,140px) minmax(0,1fr); gap:14px 22px;
+  padding:15px 0; border-top:1px solid var(--line-soft); }
+.stack-row:last-child{ border-bottom:1px solid var(--line-soft); }
+.stack-row > b{ font-size:10px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); padding-top:3px; }
+.stack-row > span{ display:flex; flex-wrap:wrap; gap:8px 10px; }
+.stack-row i{ font-style:normal; font-size:12px; letter-spacing:.02em; color:#aeb8b1; }
+.stack-row i::after{ content:'·'; margin-left:10px; color:var(--line); }
+.stack-row i:last-child::after{ content:''; }
+@media (max-width:640px){ .stack-row{ grid-template-columns:1fr; gap:6px; } }
+
+/* — a compact secondary work list */
+.morework{ margin-top:clamp(30px,5vh,58px); display:grid; grid-template-columns:1fr 1fr; gap:1px;
+  background:var(--line-soft); border:1px solid var(--line-soft); }
+.morework a{ display:block; padding:20px clamp(16px,2vw,26px); background:var(--ink);
+  transition:background .4s var(--ease); }
+.morework a:hover{ background:var(--ink-2); }
+.morework h4{ font-size:14px; font-weight:400; letter-spacing:-.005em; color:var(--bone); margin-bottom:5px; }
+.morework p{ margin:0; font-size:12px; line-height:1.55; color:#8b958f; }
+.morework .st{ display:block; margin-top:9px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+@media (max-width:640px){ .morework{ grid-template-columns:1fr; } }
+
 /* — chapter II: pathways cards */
 .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(10px,1.4vw,22px); align-items:start; }
 .card{ position:relative; cursor:pointer; }
@@ -1027,6 +1050,13 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     <div><b>2</b><span>Research papers</span></div>
     <div><b>91%</b><span>Med-GReF accuracy</span></div>
   </div>
+  <div class="stack-strip" data-rv="up">
+    <div class="stack-row"><b>Languages</b><span><i>Python</i><i>TypeScript</i><i>JavaScript</i><i>SQL</i></span></div>
+    <div class="stack-row"><b>LLM &amp; GenAI</b><span><i>LangChain</i><i>AutoGen</i><i>AgentScope</i><i>OpenAI</i><i>Gemini</i><i>Claude</i><i>RAG</i><i>Vector search</i><i>Voice (STT/TTS)</i></span></div>
+    <div class="stack-row"><b>ML &amp; Vision</b><span><i>PyTorch</i><i>TensorFlow</i><i>scikit-learn</i><i>SAM 2.1</i><i>ResNet</i><i>BiomedCLIP</i><i>Radiomics</i></span></div>
+    <div class="stack-row"><b>Backend</b><span><i>FastAPI</i><i>NestJS</i><i>Node.js</i><i>PostgreSQL</i><i>MySQL</i><i>MongoDB</i><i>WebSockets</i></span></div>
+    <div class="stack-row"><b>Infra &amp; MLOps</b><span><i>Docker</i><i>Podman</i><i>RunPod (GPU)</i><i>GitHub Actions</i><i>Nginx</i><i>Linux</i></span></div>
+  </div>
 </section>
 
 <!-- ============================================================ chapter II -->
@@ -1075,6 +1105,33 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
       <div class="card-meta"><span>BiomedCLIP · NLI verifier · Radiomics</span><span>03 / 03</span></div>
     </article>
   </div>
+
+  <div class="sec-head" data-rv="fade" style="margin-top:clamp(48px,9vh,110px)">
+    <span class="k"><b>+</b> — More work</span><span class="rule"></span>
+    <a class="k" href="https://github.com/Safwan2003?tab=repositories" target="_blank" rel="noopener" data-cursor>All repositories ↗</a>
+  </div>
+  <div class="morework" data-rv="up">
+    <a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener" data-cursor>
+      <h4>Busman AI — Leads Scraper</h4>
+      <p>Multi-agent FastAPI server that writes search queries, scrapes and enriches leads with Crawl4AI, and scores buying signals via LLM.</p>
+      <span class="st">Python · FastAPI · Crawl4AI · litellm</span>
+    </a>
+    <a href="https://github.com/Safwan2003/Vidra-Your-AI-Video-Director" target="_blank" rel="noopener" data-cursor>
+      <h4>Vidra — AI Video Director</h4>
+      <p>Agentic pipeline where collaborating agents write, illustrate, animate and narrate studio-quality marketing videos from one prompt.</p>
+      <span class="st">Multi-agent · Generative media · RunPod</span>
+    </a>
+    <a href="https://github.com/Safwan2003/RandomForest_Heart_Disease_Prediction" target="_blank" rel="noopener" data-cursor>
+      <h4>Heart Disease Prediction</h4>
+      <p>Clinical risk classifier deployed on Streamlit Cloud with feature selection, preprocessing and hyperparameter tuning.</p>
+      <span class="st">scikit-learn · Streamlit Cloud</span>
+    </a>
+    <a href="https://github.com/Safwan2003" target="_blank" rel="noopener" data-cursor>
+      <h4>Fruit Classification CNN</h4>
+      <p>Convolutional network with augmentation, batch-norm and transfer learning for multi-class fruit image classification.</p>
+      <span class="st">TensorFlow · Keras · Transfer learning</span>
+    </a>
+  </div>
 </section>
 
 <!-- ============================================================ chapter III -->
@@ -1122,7 +1179,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     <div class="les" data-les="3" data-cursor>
       <span class="k">04</span>
       <h3>Med-GReF<em>Research</em></h3>
-      <p>Evidence-guided multimodal fusion and an NLI hallucination verifier for medical vision-language reasoning.</p>
+      <p>Evidence-guided multimodal fusion and an NLI hallucination verifier for medical VLMs — diagnostic accuracy 81.7% → 91.2%, undetected contradictions cut 2.4×.</p>
       <span class="t">2026</span><i class="bar"></i>
     </div>
     <div class="les" data-les="4" data-cursor>
