@@ -167,6 +167,13 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .nav-link:hover .alt{ transform:none; }
 .nav-link.on{ color:var(--bone); }
 .nav-link.on::after{ content:''; position:absolute; left:0; bottom:0; width:100%; height:1px; background:var(--vermilion); }
+.nav-cv{
+  flex:0 0 auto; margin-left:clamp(18px,2.6vw,42px);
+  font-size:10px; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--bone-dim); border:1px solid var(--line); border-radius:999px;
+  padding:8px 15px; transition:border-color .35s var(--ease), color .35s var(--ease);
+}
+.nav-cv:hover{ border-color:var(--bone-dim); color:var(--bone); }
 .nav-burger{ margin-left:clamp(18px,2.6vw,42px); width:26px; height:16px; position:relative; flex:0 0 auto; }
 .nav-burger i{ position:absolute; right:0; height:1.5px; background:var(--bone); transition:width .45s var(--ease-out), transform .45s var(--ease-out); }
 .nav-burger i:nth-child(1){ top:4px; width:26px; }
@@ -320,23 +327,25 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 }
 a.card-fr{ cursor:pointer; }
 .card:hover .card-fr{ outline-color:rgba(223,231,224,.30); }
-.card:nth-child(1) .card-fr{
+/* Each project window is a designed panel — a project-tinted field with a
+   large index numeral — rather than a photo, so nothing here is decorative
+   stock imagery. */
+.card-fr{
   background:
-    linear-gradient(180deg,rgba(3,6,9,.04) 36%,rgba(3,6,9,.72) 100%),
-    url('secret-pathways-assets/generated/kage-approach.webp') center / cover no-repeat;
+    radial-gradient(120% 80% at 24% 12%, rgba(255,255,255,.05), transparent 60%),
+    linear-gradient(165deg, var(--card-a, #12181d), var(--card-b, #0a0d10) 70%);
 }
-.card:nth-child(2) .card-fr{
-  background:
-    linear-gradient(180deg,rgba(3,6,9,.06) 36%,rgba(3,6,9,.74) 100%),
-    url('secret-pathways-assets/generated/kage-lantern-court.webp') center / cover no-repeat;
+.card-fr .card-no{
+  position:absolute; right:14px; top:10px; z-index:1;
+  font-family:'Wordmark','Onest',sans-serif; font-weight:600;
+  font-size:clamp(60px,11vw,120px); line-height:.8; letter-spacing:-.03em;
+  color:rgba(223,231,224,.09);
 }
-.card:nth-child(3) .card-fr{
-  background:
-    linear-gradient(180deg,rgba(3,6,9,.05) 36%,rgba(3,6,9,.74) 100%),
-    url('secret-pathways-assets/generated/kage-moonwater.webp') center / cover no-repeat;
-}
+.card:nth-child(1) .card-fr{ --card-a:#141d24; --card-b:#0a1013; }
+.card:nth-child(2) .card-fr{ --card-a:#231911; --card-b:#12100c; }
+.card:nth-child(3) .card-fr{ --card-a:#122019; --card-b:#0b120f; }
 .card-fr::after{ content:''; position:absolute; inset:0;
-  background:linear-gradient(transparent 46%, rgba(4,6,9,.80)); pointer-events:none; }
+  background:linear-gradient(transparent 40%, rgba(4,6,9,.78)); pointer-events:none; }
 /* The fabric overdraws its card by CL_BLEED on every side so the billow and
    the contact shadow have somewhere to go, so the frame cannot clip it. The
    card's outline is not here at all: it is drawn in the cloth shader, where it
@@ -538,7 +547,8 @@ a.card-fr{ cursor:pointer; }
      opens. Without transition:none it eases out over .55s and the sheet spends
      that whole time measured against the bar. */
   .nav.menu-open{ transform:none; transition:none; }
-  .nav-burger{ margin-left:auto; }
+  .nav-burger{ margin-left:18px; }
+  .nav-cv{ margin-left:auto; }
   .nav-burger.active i:nth-child(1){ top:7px; width:26px; transform:rotate(45deg); }
   .nav-burger.active i:nth-child(2){ top:7px; width:26px; transform:rotate(-45deg); }
   html.nav-open,html.nav-open body{ overflow:hidden; }
@@ -721,11 +731,15 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
 .sec, .foot{ overflow-x:clip; overflow-y:visible; }
 /* the host for whichever chapter currently owns the near plane — no box of
    its own, since every stage it holds is position:fixed to the viewport */
+/* Kage floats the active chapter's foreground in front of the reading (z-52).
+   For a portfolio the copy has to stay legible, so the garden plane sits
+   behind the reading layer instead — still over the 3D canvas, so it reads
+   as a near plane, but it can never cover a line of text. */
 #fg-sky{
   position:fixed; left:0; top:0; width:0; height:0;
-  z-index:52; pointer-events:none;
+  z-index:9; pointer-events:none;
 }
-.sec > *:not(.fg), .foot > *:not(.fg){ position:relative; z-index:2; }
+.sec > *:not(.fg), .foot > *:not(.fg){ position:relative; z-index:4; }
 .fg-el{ position:absolute; display:block; opacity:0; }
 .fg-el > img{
   width:100%; height:auto;   /* the width/height attrs hold the box before the lazy image lands */
@@ -912,6 +926,11 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   body[data-layout-hero="b"] .chip .num{ font-size:clamp(22px,7.4vw,30px); }
   body[data-layout-hero="b"] .chip .tx{ padding-top:0; }
   body[data-layout-hero="b"] .chip p{ max-width:none; }
+  .brand-tx i{ display:none; }
+  .nav-cv{ display:none; }
+  .gate-stats{ gap:16px 24px; }
+  .gate-stats div{ min-width:40%; }
+  .morework a{ padding:16px 16px; }
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -962,6 +981,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     <a class="nav-link" href="#lessons" data-cursor><span>Experience</span><span class="alt">03</span></a>
     <a class="nav-link" href="#eternity" data-cursor><span>Contact</span><span class="alt">04</span></a>
   </nav>
+  <a class="nav-cv" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener" data-cursor>CV ↗</a>
   <button class="nav-burger" aria-label="Menu" data-cursor><i></i><i></i></button>
 </header>
 
@@ -996,12 +1016,12 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </div>
   </div>
 
-  <a class="peek" href="#pathways" data-view="3" data-rv="fade" data-cursor aria-label="Preview: featured projects">
+  <a class="peek" href="#pathways" data-view="3" data-rv="fade" data-cursor aria-label="This page is rendered live in WebGL">
     <!-- data-frame, or the live view is blitted over the whole anchor and
          runs on down behind the caption instead of stopping at the frame -->
     <span class="peek-fr" data-frame></span>
     <span class="peek-play"><svg viewBox="0 0 22 22" fill="none"><path d="M8 5.6 16.4 11 8 16.4z" fill="#dfe7e0"/></svg></span>
-    <span class="peek-cap"><b class="jp">03</b><i>Selected projects</i></span>
+    <span class="peek-cap"><b class="jp">WebGL</b><i>Rendered live · Three.js</i></span>
   </a>
 
   <div class="word-fb" aria-hidden="true">SAFWAN</div>
@@ -1080,25 +1100,28 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     <span class="k"><b>02</b> — Selected Projects</span><span class="rule"></span><span class="k">2025 — 2026</span>
   </div>
   <div class="cards" id="cards">
-    <article class="card" data-rv="up" data-view="0" data-cursor>
-      <a class="card-fr" data-frame href="https://github.com/Safwan2003/AI-Driven-Lunar-Soil-Composition-Analysis-Using-Imagery-and-Large-Language-Models" target="_blank" rel="noopener">
-                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
+    <article class="card" data-rv="up" data-cursor>
+      <a class="card-fr" href="https://github.com/Safwan2003/AI-Driven-Lunar-Soil-Composition-Analysis-Using-Imagery-and-Large-Language-Models" target="_blank" rel="noopener">
+        <span class="card-no" aria-hidden="true">01</span>
+        <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
         <i class="glow" style="--gx:80.2%; --gy:23.9%; --gr:22%; --gt:6.1s; --gt2:9.7s; --gc1:rgba(255,142,108,.50); --gc2:rgba(212,56,38,.24)"></i>
         <div class="card-lab"><b>Lunar Soil Analysis</b><span class="jp">SUPARCO</span></div>
       </a>
       <div class="card-meta"><span>SAM 2.1 · ResNet-18 · Gemini 2.0</span><span>01 / 03</span></div>
     </article>
-    <article class="card" data-rv="up" data-view="1" data-cursor>
-      <a class="card-fr" data-frame href="https://github.com/Safwan2003/voice" target="_blank" rel="noopener">
-                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
+    <article class="card" data-rv="up" data-cursor>
+      <a class="card-fr" href="https://github.com/Safwan2003/voice" target="_blank" rel="noopener">
+        <span class="card-no" aria-hidden="true">02</span>
+        <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
         <i class="glow glow--flame" style="--gx:70.5%; --gy:47.2%; --gr:14%; --gt:3.7s; --gt2:5.3s; --gc1:rgba(255,198,124,.62); --gc2:rgba(226,118,40,.30)"></i>
         <div class="card-lab"><b>Voice AI Agents</b><span class="jp">LiveKit</span></div>
       </a>
       <div class="card-meta"><span>Streaming STT · LLM · TTS</span><span>02 / 03</span></div>
     </article>
-    <article class="card" data-rv="up" data-view="2" data-cursor>
-      <a class="card-fr" data-frame href="https://github.com/Safwan2003/Med-Gref" target="_blank" rel="noopener">
-                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
+    <article class="card" data-rv="up" data-cursor>
+      <a class="card-fr" href="https://github.com/Safwan2003/Med-Gref" target="_blank" rel="noopener">
+        <span class="card-no" aria-hidden="true">03</span>
+        <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
         <i class="glow" style="--gx:48.0%; --gy:16.8%; --gr:20%; --gt:7.3s; --gt2:11.2s; --gc1:rgba(255,138,104,.52); --gc2:rgba(208,54,36,.24)"></i>
         <div class="card-lab"><b>Med-GReF</b><span class="jp">Research</span></div>
       </a>
