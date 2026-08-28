@@ -2,44 +2,31 @@
 
 Personal portfolio for **Safwan Ali** — AI Engineer & Data Scientist (Karachi, Pakistan).
 
-A single-page static site: plain HTML, one CSS file, one vanilla-JS file. **No build
-step, no dependencies, no framework.** Google Fonts (Syne + Sora + Onest) are the
-only remote asset.
+The whole page is a **live WebGL scene**. A Kyoto-inspired night environment —
+geometry, textures, normal maps, post-processing — is generated at runtime with
+Three.js, and the portfolio content (about, projects, experience, contact) is set
+into it as scroll-driven chapters with a giant 3D wordmark and camera moves.
 
-## Concept
-
-A dark, editorial record-label style. The hero is **Kage** — a fully procedural
-WebGL night scene (`landing-pages/kage.html`, Three.js, no photos or video),
-lazy-mounted only when it scrolls into view so the page is readable instantly and
-on any device. Below the hero: a professional summary, the Med-GReF research
-paper, experience, a **throwable card deck** for the project catalogue (drag, or
-arrow keys), a technical-skills grid, a timeline / education table, and a contact
-close.
-
-Accessibility: all scroll/reveal motion is gated behind a `motion` class added
-only when `prefers-reduced-motion` is not set, so the reduced-motion and no-JS
-renders are the finished page. The deck is keyboard-operable.
+No build step, no framework. The only assets are `three.min.js` and two subset
+fonts, both served locally from `secret-pathways-assets/`.
 
 ## Structure
 
 ```
 Safwan_Ali/
-├── index.html                     # all page content
-├── style.css                      # palette, layout, deck + research styling
-├── script.js                      # hero lazy-mount, reveal observer, throwable deck
-├── landing-pages/
-│   ├── kage.html                  # procedural WebGL hero scene
-│   └── secret-pathways-assets/    # fonts + three.js + foreground art for kage.html
+├── index.html                     # entire page — markup, CSS, and the WebGL scene
+├── secret-pathways-assets/        # three.js, subset fonts, foreground art
 └── assets/
     ├── SafwanAli_Resume.pdf
     └── Med-GReF_Paper.pdf
 ```
 
-## Palette
+## Accessibility & fallback
 
-Ground `#0A0C0E` · ink `#EDE7DC` · muted `#6C7378` · amber `#E8913C` · teal
-`#2E6B72` · hairlines `rgba(237,231,220,.13)`. Accents appear only on type, a dot,
-or a rule.
+- All scroll/reveal motion respects `prefers-reduced-motion`.
+- If WebGL is unavailable the page drops to a static `no-webgl` render with the
+  same content.
+- The scroll rail and nav are keyboard-operable.
 
 ## Run locally
 
