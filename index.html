@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Safwan Ali — AI Engineer and applied researcher. Production LLM, RAG, and multi-agent systems; research on trustworthy medical vision-language reasoning." />
+  <meta name="description" content="Safwan Ali — AI Engineer, Data Scientist &amp; Full-Stack AI Developer. Production LLMs, RAG, real-time voice agents, multi-agent systems, and computer vision." />
   <meta name="author" content="Safwan Ali" />
-  <meta property="og:title" content="Safwan Ali — AI Engineer &amp; Applied Researcher" />
-  <meta property="og:description" content="Production AI systems and applied research in LLMs, RAG, multi-agent systems, and trustworthy generation." />
+  <meta property="og:title" content="Safwan Ali — AI Engineer &amp; Data Scientist" />
+  <meta property="og:description" content="Production AI systems &amp; applied research: LLMs, RAG, voice agents, agentic workflows, and computer vision." />
   <meta property="og:type" content="website" />
-  <title>Safwan Ali — AI Engineer &amp; Applied Researcher</title>
+  <title>Safwan Ali — AI Engineer &amp; Data Scientist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&amp;family=Sora:wght@400;500;600&amp;family=Onest:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
@@ -31,6 +31,19 @@
       display: block;
       background: #080808;
     }
+    .exp-list { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem; }
+    .exp-item { border-left: 2px solid var(--amber); padding-left: 1.5rem; }
+    .exp-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; margin-bottom: 0.5rem; }
+    .exp-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: clamp(18px, 2.8vw, 24px); color: var(--ink); }
+    .exp-company { color: var(--amber); font-weight: 600; font-size: 14px; }
+    .exp-date { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .exp-bullets { list-style: disc; margin-left: 1.25rem; color: var(--ink-2); font-size: 13.5px; line-height: 1.7; }
+    .exp-bullets li { margin-bottom: 0.4rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-top: 2rem; }
+    .skill-card { background: var(--ground-2); border: 1px solid var(--hair); border-radius: 12px; padding: 1.25rem; }
+    .skill-card h4 { font-family: "Syne", sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); margin-bottom: 0.75rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .skill-tag { font-size: 11px; background: rgba(237, 231, 220, 0.05); border: 1px solid var(--hair); padding: 0.25rem 0.6rem; border-radius: 6px; color: var(--ink-2); }
   </style>
 </head>
 <body>
@@ -39,15 +52,16 @@
   <nav class="nav" aria-label="Primary">
     <a class="nav__mark" href="#top">Safwan&nbsp;Ali<span>.</span></a>
     <div class="nav__links">
+      <a href="#experience">Experience</a>
       <a href="#work">Work</a>
-      <a href="#practice">Practice</a>
+      <a href="#skills">Skills</a>
       <a href="#timeline">Timeline</a>
       <a href="#contact">Contact</a>
     </div>
     <a class="nav__cta" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">CV ↗</a>
   </nav>
 
-  <!-- ============ THREEUI KAGE LANDING PAGE SCENE HERO ============ -->
+  <!-- ============ THREEUI KAGE LANDING PAGE HERO ============ -->
   <section id="top" style="width: 100%; height: 100vh; position: relative;">
     <div class="shader-frame">
       <iframe
@@ -60,30 +74,65 @@
   </section>
 
   <main>
-    <!-- ============ STATEMENT ============ -->
+    <!-- ============ SUMMARY ============ -->
     <section class="statement reveal" id="statement">
       <span class="statement-index" aria-hidden="true">01</span>
       <span class="statement-orb" aria-hidden="true"></span>
       <div class="statement-inner">
-        <p class="label"><b>01</b> — Statement</p>
+        <p class="label"><b>01</b> — Professional Summary</p>
         <p class="statement-text">
-          I build production AI systems — LLM applications, RAG pipelines, agents,
-          real-time voice — and I research how to make their reasoning
-          <span class="amber">trustworthy</span>, especially in medical imaging.
+          AI Engineer &amp; Data Scientist with 1+ years experience shipping
+          production AI at MarkyTech. Hands-on across LLMs, RAG, real-time voice AI,
+          multi-agent workflows, computer vision, and GPU containerization. Delivered
+          a <span class="amber">SUPARCO-aligned</span> satellite lunar soil analysis system.
         </p>
       </div>
     </section>
 
-    <!-- ============ RELEASES / SELECTED WORK ============ -->
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="practice reveal" id="experience">
+      <p class="label"><b>02</b> — Professional Experience</p>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <span class="exp-title">AI Engineer (Part-time)</span> — <span class="exp-company">MarkyTech</span>
+            </div>
+            <span class="exp-date">Oct 2025 — Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed <strong>real-time voice AI agents</strong> with streaming STT/TTS, handling low-latency audio, barge-in, and multi-turn state.</li>
+            <li>Engineered lead generation &amp; conversational AI for commercial SaaS product <strong>Busman AI</strong>.</li>
+            <li>Built LLM chatbots &amp; RAG pipelines with <strong>LangChain</strong>, OpenAI, Gemini, &amp; Claude APIs over vector-indexed knowledge bases.</li>
+            <li>Implemented agentic multi-agent workflows with <strong>AutoGen</strong> &amp; <strong>AgentScope</strong> to automate complex business processes.</li>
+            <li>Served hyper-realistic CV &amp; Generative AI engines on GPU infrastructure (<strong>RunPod</strong>).</li>
+            <li>Built production REST APIs with <strong>FastAPI</strong> &amp; <strong>NestJS</strong> (PostgreSQL, MySQL, Next.js) containerized with Docker/Podman &amp; CI/CD.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <span class="exp-title">AI Intern</span> — <span class="exp-company">MarkyTech</span>
+            </div>
+            <span class="exp-date">Aug 2025 — Oct 2025</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Completed intensive 3-month AI engineering program, delivering production AI features on schedule.</li>
+            <li>Demonstrated rapid technical growth leading to direct conversion into an ongoing AI Engineer role.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SELECTED WORK ============ -->
     <section class="releases reveal" id="work">
-      <p class="label"><b>02</b> — Selected Work</p>
+      <p class="label"><b>03</b> — Selected Projects</p>
       <div class="releases-grid">
         <div class="releases-lead">
           <h2>A working catalogue.</h2>
           <p class="lede">
-            Shipped products, research code, and coursework — from a medical
-            vision-language paper to an outbound voice-agent platform. Flip through
-            the deck, or open any repository directly.
+            From a SUPARCO-aligned lunar soil composition analysis system to real-time voice AI platforms and agentic lead scrapers.
           </p>
           <div class="btn-row">
             <a class="btn" href="https://github.com/Safwan2003?tab=repositories" target="_blank" rel="noopener">All 30 Repositories ↗</a>
@@ -92,13 +141,49 @@
         </div>
 
         <div class="releases-deck">
-          <div class="deck" id="deck" tabindex="0" role="group" aria-label="Project catalogue — drag a card or use left and right arrow keys to flip">
+          <div class="deck" id="deck" tabindex="0" role="group" aria-label="Project catalogue — drag a card or use arrow keys">
+            <!-- CAT 01 -->
             <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-01</span><span>Research</span></div>
-              <h3>Med-GReF</h3>
-              <p>Evidence-guided multimodal fusion and an NLI hallucination verifier for medical vision-language reasoning. Accuracy 0.82 → 0.91, undetected contradictions cut 2.4×. Workshop paper, under submission.</p>
+              <div class="deck-card__top"><span>CAT-01</span><span>Thesis / SUPARCO</span></div>
+              <h3>Lunar Soil Analysis</h3>
+              <p>Analyzed 457 Chang'e 3 Yutu rover images to estimate 6 lunar mineral oxides (FeO, TiO2, MgO, SiO2, Al2O3, CaO), aligned with Pakistan's SUPARCO ICUBE-Qamar satellite. SAM 2.1 + ResNet-18 + Gemini 2.0 Flash + Streamlit dashboard.</p>
               <div class="deck-card__foot">
-                <span class="stack">PyTorch · BiomedCLIP · NLI verifier · radiomics</span>
+                <span class="stack">Python · SAM 2.1 · ResNet-18 · Gemini 2.0 · Streamlit</span>
+                <span class="deck-card__links">
+                  <a href="https://github.com/Safwan2003/AI-Driven-Lunar-Soil-Composition-Analysis-Using-Imagery-and-Large-Language-Models" target="_blank" rel="noopener">Code ↗</a>
+                </span>
+              </div>
+            </article>
+
+            <!-- CAT 02 -->
+            <article class="deck-card">
+              <div class="deck-card__top"><span>CAT-02</span><span>Voice AI</span></div>
+              <h3>Voxreach / Voice AI Agents</h3>
+              <p>Outbound SDR voice-agent platform: streaming STT → LLM → TTS over LiveKit real-time transport with barge-in handling and conversational state management.</p>
+              <div class="deck-card__foot">
+                <span class="stack">Python · LiveKit · STT/TTS · LLM · Docker</span>
+                <span class="deck-card__links"><a href="https://github.com/Safwan2003/voice" target="_blank" rel="noopener">Code ↗</a></span>
+              </div>
+            </article>
+
+            <!-- CAT 03 -->
+            <article class="deck-card">
+              <div class="deck-card__top"><span>CAT-03</span><span>Agents / SaaS</span></div>
+              <h3>Busman AI Leads Scraper</h3>
+              <p>Multi-agent FastAPI server writing search queries, scraping &amp; enriching leads with Crawl4AI, and scoring buying signals &amp; red flags via LLM.</p>
+              <div class="deck-card__foot">
+                <span class="stack">Python · FastAPI · Crawl4AI · MySQL · litellm</span>
+                <span class="deck-card__links"><a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener">Code ↗</a></span>
+              </div>
+            </article>
+
+            <!-- CAT 04 -->
+            <article class="deck-card">
+              <div class="deck-card__top"><span>CAT-04</span><span>Research</span></div>
+              <h3>Med-GReF</h3>
+              <p>Evidence-guided multimodal fusion and an NLI hallucination verifier for medical vision-language reasoning. Accuracy 0.82 → 0.91, undetected contradictions cut 2.4×.</p>
+              <div class="deck-card__foot">
+                <span class="stack">PyTorch · BiomedCLIP · NLI verifier · Radiomics</span>
                 <span class="deck-card__links">
                   <a href="https://github.com/Safwan2003/Med-Gref" target="_blank" rel="noopener">Code ↗</a>
                   <a href="assets/Med-GReF_Paper.pdf" target="_blank" rel="noopener">Paper ↗</a>
@@ -106,63 +191,36 @@
               </div>
             </article>
 
+            <!-- CAT 05 -->
             <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-02</span><span>Voice AI</span></div>
-              <h3>Voxreach</h3>
-              <p>Outbound SDR voice-agent platform: STT → LLM → TTS over LiveKit real-time transport, taken from a Colab GPU prototype to a containerized self-hosted production deployment.</p>
+              <div class="deck-card__top"><span>CAT-05</span><span>Generative AI</span></div>
+              <h3>Vidra — AI Video Director</h3>
+              <p>Agentic pipeline where collaborating AI agents write, illustrate, animate, and narrate stories to generate studio-quality marketing videos from a single prompt.</p>
               <div class="deck-card__foot">
-                <span class="stack">Python · LiveKit · STT/TTS · LLM</span>
-                <span class="deck-card__links"><a href="https://github.com/Safwan2003/voice" target="_blank" rel="noopener">Code ↗</a></span>
-              </div>
-            </article>
-
-            <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-03</span><span>Agents</span></div>
-              <h3>AI Leads Scraper</h3>
-              <p>Multi-agent FastAPI server that writes platform-specific search queries, scrapes and enriches leads with Crawl4AI, and scores them via LLM on buying signals and red flags.</p>
-              <div class="deck-card__foot">
-                <span class="stack">Python · FastAPI · Crawl4AI · MySQL · litellm</span>
-                <span class="deck-card__links"><a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener">Code ↗</a></span>
-              </div>
-            </article>
-
-            <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-04</span><span>Generative</span></div>
-              <h3>Vidra</h3>
-              <p>Agentic pipeline where collaborating AI agents write, illustrate, animate, and narrate a story to generate studio-quality marketing video from a single text prompt.</p>
-              <div class="deck-card__foot">
-                <span class="stack">Python · Multi-agent · Generative media</span>
+                <span class="stack">Python · Multi-agent · Generative Media · RunPod</span>
                 <span class="deck-card__links"><a href="https://github.com/Safwan2003/Vidra-Your-AI-Video-Director" target="_blank" rel="noopener">Code ↗</a></span>
               </div>
             </article>
 
+            <!-- CAT 06 -->
             <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-05</span><span>Thesis</span></div>
-              <h3>Lunar Soil Analysis</h3>
-              <p>Final-year project aligned with SUPARCO's ICUBE-Qamar mission: 457 Chang'e 3 rover images → six mineral oxides, calibrated to APXS ground truth. SAM 2.1 + ResNet-18 + Gemini 2.0 Flash.</p>
-              <div class="deck-card__foot">
-                <span class="stack">Python · SAM 2.1 · ResNet-18 · Streamlit</span>
-                <span class="deck-card__links"><a href="https://github.com/Safwan2003/AI-Driven-Lunar-Soil-Composition-Analysis-Using-Imagery-and-Large-Language-Models" target="_blank" rel="noopener">Code ↗</a></span>
-              </div>
-            </article>
-
-            <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-06</span><span>Streaming</span></div>
-              <h3>Summariz</h3>
-              <p>Live video-streaming web app pairing real-time speech-to-text transcription with AI-powered summarization.</p>
-              <div class="deck-card__foot">
-                <span class="stack">Python · STT · LLM</span>
-                <span class="deck-card__links"><a href="https://github.com/Safwan2003/Summariz-Live-Streaming-with-Real-Time-Transcription-Summarization-Built-by-AFS-Solutions" target="_blank" rel="noopener">Code ↗</a></span>
-              </div>
-            </article>
-
-            <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-07</span><span>ML</span></div>
+              <div class="deck-card__top"><span>CAT-06</span><span>Clinical ML</span></div>
               <h3>Heart Disease Prediction</h3>
-              <p>Deployed clinical risk classifier on Streamlit Cloud with feature selection, preprocessing, and hyperparameter tuning; real-time inference.</p>
+              <p>Deployed clinical risk classifier on Streamlit Cloud with feature selection, preprocessing, hyperparameter tuning, and real-time inference.</p>
               <div class="deck-card__foot">
-                <span class="stack">Python · Scikit-learn · Streamlit</span>
+                <span class="stack">Python · Scikit-learn · Streamlit Cloud</span>
                 <span class="deck-card__links"><a href="https://github.com/Safwan2003/RandomForest_Heart_Disease_Prediction" target="_blank" rel="noopener">Code ↗</a></span>
+              </div>
+            </article>
+
+            <!-- CAT 07 -->
+            <article class="deck-card">
+              <div class="deck-card__top"><span>CAT-07</span><span>Computer Vision</span></div>
+              <h3>Fruit Classification CNN</h3>
+              <p>CNN with data augmentation and batch normalization for multi-class fruit image classification using transfer learning to maximize validation accuracy.</p>
+              <div class="deck-card__foot">
+                <span class="stack">Python · TensorFlow · Keras · Transfer Learning</span>
+                <span class="deck-card__links"><a href="https://github.com/Safwan2003" target="_blank" rel="noopener">Code ↗</a></span>
               </div>
             </article>
           </div>
@@ -172,99 +230,144 @@
       </div>
     </section>
 
-    <!-- ============ ROSTER / PRACTICE ============ -->
-    <section class="practice reveal" id="practice">
-      <p class="label"><b>03</b> — Practice</p>
-      <div class="roster">
-        <div class="roster-row">
-          <span class="roster-tag">Language Models</span>
-          <span class="roster-name">LLM Apps &amp; RAG Pipelines</span>
-          <span class="roster-count">12</span>
+    <!-- ============ TECHNICAL SKILLS ============ -->
+    <section class="practice reveal" id="skills">
+      <p class="label"><b>04</b> — Technical Skills</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h4>Languages</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">SQL</span>
+          </div>
         </div>
-        <div class="roster-row">
-          <span class="roster-tag">Agents</span>
-          <span class="roster-name">Multi-Agent &amp; Agentic Workflows</span>
-          <span class="roster-count">05</span>
+
+        <div class="skill-card">
+          <h4>LLM &amp; Generative AI</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">LangChain</span>
+            <span class="skill-tag">AutoGen</span>
+            <span class="skill-tag">AgentScope</span>
+            <span class="skill-tag">OpenAI API</span>
+            <span class="skill-tag">Gemini API</span>
+            <span class="skill-tag">Claude API</span>
+            <span class="skill-tag">Hugging Face</span>
+            <span class="skill-tag">RAG Pipelines</span>
+            <span class="skill-tag">Vector Search</span>
+            <span class="skill-tag">Voice AI (STT/TTS)</span>
+            <span class="skill-tag">Prompt Engineering</span>
+          </div>
         </div>
-        <div class="roster-row">
-          <span class="roster-tag">Voice</span>
-          <span class="roster-name">Real-Time Voice AI · STT / TTS</span>
-          <span class="roster-count">03</span>
+
+        <div class="skill-card">
+          <h4>ML &amp; Deep Learning</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">CNNs</span>
+            <span class="skill-tag">SAM 2.1</span>
+            <span class="skill-tag">ResNet</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">NLP</span>
+          </div>
         </div>
-        <div class="roster-row">
-          <span class="roster-tag">Vision</span>
-          <span class="roster-name">Computer Vision &amp; Medical Imaging</span>
-          <span class="roster-count">06</span>
+
+        <div class="skill-card">
+          <h4>Backend &amp; APIs</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">NestJS</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">WebSockets</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
         </div>
-        <div class="roster-row">
-          <span class="roster-tag">Research</span>
-          <span class="roster-name">Papers &amp; Preprints</span>
-          <span class="roster-count">02</span>
+
+        <div class="skill-card">
+          <h4>Frontend &amp; Data Analysis</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Crawl4AI</span>
+          </div>
         </div>
-        <div class="roster-row">
-          <span class="roster-tag">Full-Stack</span>
-          <span class="roster-name">AI Web Apps &amp; Inference APIs</span>
-          <span class="roster-count">04</span>
+
+        <div class="skill-card">
+          <h4>DevOps &amp; MLOps</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Podman</span>
+            <span class="skill-tag">RunPod (GPU Compute)</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">Vercel</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ DATES / TIMELINE ============ -->
+    <!-- ============ TIMELINE & EDUCATION ============ -->
     <section class="timeline reveal" id="timeline">
-      <p class="label"><b>04</b> — Timeline</p>
+      <p class="label"><b>05</b> — Timeline &amp; Education</p>
       <table class="dates">
         <thead>
           <tr><th scope="col">Milestone</th><th scope="col">Year</th><th scope="col">Track</th><th scope="col">Detail</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td data-label="Milestone">Med-GReF</td>
-            <td data-label="Year">2026</td>
-            <td data-label="Track">Research</td>
-            <td data-label="Detail">Evidence-guided medical VLM; workshop paper, under submission</td>
+            <td data-label="Milestone">AI Engineer (Part-time)</td>
+            <td data-label="Year">Oct 2025 — Present</td>
+            <td data-label="Track">MarkyTech</td>
+            <td data-label="Detail">Shipped voice AI agents, RAG chatbots, Busman AI lead gen, GenAI engines</td>
           </tr>
           <tr>
-            <td data-label="Milestone">AI Engineer</td>
-            <td data-label="Year">2025 —</td>
-            <td data-label="Track">Role</td>
-            <td data-label="Detail">Promoted from AI intern; production LLM &amp; voice systems</td>
-          </tr>
-          <tr>
-            <td data-label="Milestone">Voxreach</td>
-            <td data-label="Year">2026</td>
-            <td data-label="Track">Project</td>
-            <td data-label="Detail">Outbound voice-agent platform, prototype to production</td>
+            <td data-label="Milestone">AI Intern → Engineer</td>
+            <td data-label="Year">Aug 2025 — Oct 2025</td>
+            <td data-label="Track">MarkyTech</td>
+            <td data-label="Detail">Completed 3-month AI program and converted to ongoing AI Engineer role</td>
           </tr>
           <tr>
             <td data-label="Milestone">Lunar Soil Composition Analysis</td>
-            <td data-label="Year">2025</td>
-            <td data-label="Track">Thesis</td>
-            <td data-label="Detail">SUPARCO ICUBE-Qamar–aligned final-year project</td>
+            <td data-label="Year">2025 — 2026</td>
+            <td data-label="Track">FYP / SUPARCO</td>
+            <td data-label="Detail">Aligned with ICUBE-Qamar lunar mission; SAM 2.1 + ResNet-18 + Gemini 2.0</td>
           </tr>
           <tr>
-            <td data-label="Milestone">AI Internship</td>
-            <td data-label="Year">2025</td>
-            <td data-label="Track">Role</td>
-            <td data-label="Detail">Three-month AI program; converted to an engineering role</td>
+            <td data-label="Milestone">Med-GReF Research</td>
+            <td data-label="Year">2026</td>
+            <td data-label="Track">Research</td>
+            <td data-label="Detail">Evidence-guided medical VLM hallucination verification paper</td>
           </tr>
           <tr>
             <td data-label="Milestone">BS Computer Science</td>
-            <td data-label="Year">2022 – 26</td>
-            <td data-label="Track">Degree</td>
-            <td data-label="Detail">Salim Habib University — Data Science, ML &amp; AI</td>
+            <td data-label="Year">2022 — June 2026</td>
+            <td data-label="Track">Salim Habib University</td>
+            <td data-label="Detail">Specialization in Data Science, Machine Learning &amp; AI (Karachi, PK)</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ============ CLOSE ============ -->
+    <!-- ============ CONTACT ============ -->
     <section class="close reveal" id="contact">
-      <p class="label"><b>05</b> — Contact</p>
+      <p class="label"><b>06</b> — Contact</p>
       <h2>Let's build something grounded.</h2>
       <p class="close-fine">
-        Open to funded Master's positions and research-assistant roles in AI —
-        large language models, retrieval, multimodal reasoning, and trustworthy
-        generation. Email is the surest way to reach me.
+        Open to AI Engineering roles, funded Master's positions, and research assistantships in LLMs, RAG, agentic systems, and trustworthy generation.
       </p>
       <div class="close-actions">
         <a class="btn" href="mailto:safwanalimukaddam@gmail.com">Email ↗</a>
