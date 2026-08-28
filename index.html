@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Safwan Ali — AI Engineer, Data Scientist &amp; Full-Stack AI Developer. Production LLMs, RAG, real-time voice agents, multi-agent systems, and computer vision." />
+  <meta name="description" content="Safwan Ali — AI Engineer, Data Scientist &amp; Full-Stack AI Developer. Production LLMs, RAG, real-time voice agents, agentic systems, and computer vision." />
   <meta name="author" content="Safwan Ali" />
   <meta property="og:title" content="Safwan Ali — AI Engineer &amp; Data Scientist" />
-  <meta property="og:description" content="Production AI systems &amp; applied research: LLMs, RAG, voice agents, agentic workflows, and computer vision." />
+  <meta property="og:description" content="Production AI systems &amp; applied research: LLMs, RAG, voice agents, agentic workflows, and trustworthy medical vision-language reasoning." />
   <meta property="og:type" content="website" />
   <title>Safwan Ali — AI Engineer &amp; Data Scientist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,6 +52,7 @@
   <nav class="nav" aria-label="Primary">
     <a class="nav__mark" href="#top">Safwan&nbsp;Ali<span>.</span></a>
     <div class="nav__links">
+      <a href="#research">Research</a>
       <a href="#experience">Experience</a>
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
@@ -83,15 +84,62 @@
         <p class="statement-text">
           AI Engineer &amp; Data Scientist with 1+ years experience shipping
           production AI at MarkyTech. Hands-on across LLMs, RAG, real-time voice AI,
-          multi-agent workflows, computer vision, and GPU containerization. Delivered
-          a <span class="amber">SUPARCO-aligned</span> satellite lunar soil analysis system.
+          multi-agent workflows, computer vision, and GPU containerization. Author of
+          <span class="amber">Med-GReF</span> and a <span class="amber">SUPARCO-aligned</span> satellite lunar soil composition system.
         </p>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED RESEARCH PAPER ============ -->
+    <section class="practice reveal" id="research">
+      <p class="label"><b>02</b> — Featured Research Paper</p>
+      <div class="research-hero">
+        <div class="research-tag">Target: IEEE TMI / MICCAI / Nature Scientific Reports</div>
+        <h2>Med-GReF: Medical Grounded Reasoning &amp; Fusion Framework for Hallucination-Reduced VLMs</h2>
+        <p class="research-authors"><b>Safwan Ali</b>, Ms. Sumra Salim — <i>Salim Habib University</i> (2026)</p>
+
+        <div class="research-grid">
+          <div class="research-card">
+            <h3>Abstract &amp; Architecture</h3>
+            <p>
+              Vision-Language Models (VLMs) suffer from visual hallucinations and ungrounded assertions in clinical diagnostics. 
+              <b>Med-GReF</b> introduces a multimodal cross-attention fusion mechanism that unites vision embeddings (BiomedCLIP), radiomics texture extractions, and XAI feature maps with an <b>NLI Hallucination Verifier &amp; Gate</b>. The verifier assesses visual groundedness to override ungrounded diagnostic claims before inference outputs are returned.
+            </p>
+          </div>
+
+          <div class="research-card">
+            <h3>Empirical Results (3-Seed Mean ± Std)</h3>
+            <div class="research-stats">
+              <div class="r-stat">
+                <span class="r-val">91.2%</span>
+                <span class="r-lbl">Diagnostic Accuracy (81.7% → 91.2%)</span>
+              </div>
+              <div class="r-stat">
+                <span class="r-val">2.4×</span>
+                <span class="r-lbl">Cut Undetected Hallucinations (16.6% → 7.0%)</span>
+              </div>
+              <div class="r-stat">
+                <span class="r-val">0.881</span>
+                <span class="r-lbl">ROC-AUC Score (0.570 → 0.881)</span>
+              </div>
+              <div class="r-stat">
+                <span class="r-val">p &lt; 0.001</span>
+                <span class="r-lbl">Statistical Significance (Cohen's d = 4.75)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row" style="margin-top: 1.5rem;">
+          <a class="btn" href="assets/Med-GReF_Paper.pdf" target="_blank" rel="noopener">Read Full PDF ↗</a>
+          <a class="btn" href="https://github.com/Safwan2003/Med-Gref" target="_blank" rel="noopener">GitHub Repository ↗</a>
+        </div>
       </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
     <section class="practice reveal" id="experience">
-      <p class="label"><b>02</b> — Professional Experience</p>
+      <p class="label"><b>03</b> — Professional Experience</p>
       <div class="exp-list">
         <div class="exp-item">
           <div class="exp-header">
@@ -127,12 +175,12 @@
 
     <!-- ============ SELECTED WORK ============ -->
     <section class="releases reveal" id="work">
-      <p class="label"><b>03</b> — Selected Projects</p>
+      <p class="label"><b>04</b> — Selected Projects</p>
       <div class="releases-grid">
         <div class="releases-lead">
           <h2>A working catalogue.</h2>
           <p class="lede">
-            From a SUPARCO-aligned lunar soil composition analysis system to real-time voice AI platforms and agentic lead scrapers.
+            From a SUPARCO-aligned lunar soil composition analysis system to real-time voice AI platforms, Med-GReF research, and agentic lead scrapers.
           </p>
           <div class="btn-row">
             <a class="btn" href="https://github.com/Safwan2003?tab=repositories" target="_blank" rel="noopener">All 30 Repositories ↗</a>
@@ -168,26 +216,26 @@
 
             <!-- CAT 03 -->
             <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-03</span><span>Agents / SaaS</span></div>
-              <h3>Busman AI Leads Scraper</h3>
-              <p>Multi-agent FastAPI server writing search queries, scraping &amp; enriching leads with Crawl4AI, and scoring buying signals &amp; red flags via LLM.</p>
+              <div class="deck-card__top"><span>CAT-03</span><span>Research Paper</span></div>
+              <h3>Med-GReF Framework</h3>
+              <p>Evidence-guided multimodal fusion and an NLI hallucination verifier for medical vision-language reasoning. Diagnostic accuracy 81.7% → 91.2%, undetected contradictions cut 2.4×.</p>
               <div class="deck-card__foot">
-                <span class="stack">Python · FastAPI · Crawl4AI · MySQL · litellm</span>
-                <span class="deck-card__links"><a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener">Code ↗</a></span>
+                <span class="stack">PyTorch · BiomedCLIP · NLI Verifier · Radiomics</span>
+                <span class="deck-card__links">
+                  <a href="https://github.com/Safwan2003/Med-Gref" target="_blank" rel="noopener">Code ↗</a>
+                  <a href="assets/Med-GReF_Paper.pdf" target="_blank" rel="noopener">Paper ↗</a>
+                </span>
               </div>
             </article>
 
             <!-- CAT 04 -->
             <article class="deck-card">
-              <div class="deck-card__top"><span>CAT-04</span><span>Research</span></div>
-              <h3>Med-GReF</h3>
-              <p>Evidence-guided multimodal fusion and an NLI hallucination verifier for medical vision-language reasoning. Accuracy 0.82 → 0.91, undetected contradictions cut 2.4×.</p>
+              <div class="deck-card__top"><span>CAT-04</span><span>Agents / SaaS</span></div>
+              <h3>Busman AI Leads Scraper</h3>
+              <p>Multi-agent FastAPI server writing search queries, scraping &amp; enriching leads with Crawl4AI, and scoring buying signals &amp; red flags via LLM.</p>
               <div class="deck-card__foot">
-                <span class="stack">PyTorch · BiomedCLIP · NLI verifier · Radiomics</span>
-                <span class="deck-card__links">
-                  <a href="https://github.com/Safwan2003/Med-Gref" target="_blank" rel="noopener">Code ↗</a>
-                  <a href="assets/Med-GReF_Paper.pdf" target="_blank" rel="noopener">Paper ↗</a>
-                </span>
+                <span class="stack">Python · FastAPI · Crawl4AI · MySQL · litellm</span>
+                <span class="deck-card__links"><a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener">Code ↗</a></span>
               </div>
             </article>
 
@@ -232,7 +280,7 @@
 
     <!-- ============ TECHNICAL SKILLS ============ -->
     <section class="practice reveal" id="skills">
-      <p class="label"><b>04</b> — Technical Skills</p>
+      <p class="label"><b>05</b> — Technical Skills</p>
       <div class="skills-grid">
         <div class="skill-card">
           <h4>Languages</h4>
@@ -322,7 +370,7 @@
 
     <!-- ============ TIMELINE & EDUCATION ============ -->
     <section class="timeline reveal" id="timeline">
-      <p class="label"><b>05</b> — Timeline &amp; Education</p>
+      <p class="label"><b>06</b> — Timeline &amp; Education</p>
       <table class="dates">
         <thead>
           <tr><th scope="col">Milestone</th><th scope="col">Year</th><th scope="col">Track</th><th scope="col">Detail</th></tr>
@@ -347,10 +395,10 @@
             <td data-label="Detail">Aligned with ICUBE-Qamar lunar mission; SAM 2.1 + ResNet-18 + Gemini 2.0</td>
           </tr>
           <tr>
-            <td data-label="Milestone">Med-GReF Research</td>
+            <td data-label="Milestone">Med-GReF Research Paper</td>
             <td data-label="Year">2026</td>
             <td data-label="Track">Research</td>
-            <td data-label="Detail">Evidence-guided medical VLM hallucination verification paper</td>
+            <td data-label="Detail">Evidence-guided medical VLM hallucination verification framework paper</td>
           </tr>
           <tr>
             <td data-label="Milestone">BS Computer Science</td>
@@ -364,7 +412,7 @@
 
     <!-- ============ CONTACT ============ -->
     <section class="close reveal" id="contact">
-      <p class="label"><b>06</b> — Contact</p>
+      <p class="label"><b>07</b> — Contact</p>
       <h2>Let's build something grounded.</h2>
       <p class="close-fine">
         Open to AI Engineering roles, funded Master's positions, and research assistantships in LLMs, RAG, agentic systems, and trustworthy generation.
