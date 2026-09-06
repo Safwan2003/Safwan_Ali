@@ -56,6 +56,9 @@ cp .env.example .env          # then paste your Groq key into .env
 python app.py
 ```
 
+If `sentence-transformers` is unavailable the retriever falls back to TF-IDF, so
+the app still runs with only `gradio requests python-dotenv scikit-learn`.
+
 ## Deploy
 
 See [`DEPLOY.md`](DEPLOY.md).

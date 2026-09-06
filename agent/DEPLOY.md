@@ -3,36 +3,30 @@
 One-time, ~10 minutes. Nothing secret is committed to git — the key lives only as
 a Space secret.
 
-## 1. Create the Space
+## 1. Authenticate the CLI
 
-1. Go to <https://huggingface.co/new-space>.
-2. Owner: **Safwan2003**. Space name: **ask-about-safwan**.
-3. SDK: **Gradio**. Hardware: **CPU basic (free)**. Visibility: **Public**.
-4. Create the Space. Leave the web editor — you will push from your machine.
+```bash
+pip install -U "huggingface_hub[cli]"
+hf auth login          # paste a WRITE token from https://huggingface.co/settings/tokens
+```
 
-## 2. Push the `agent/` folder to the Space
+## 2. Create the Space and push `agent/`
 
 From the repo root:
 
 ```bash
-# install the HF CLI once
-pip install -U "huggingface_hub[cli]"
-huggingface-cli login          # paste a token from huggingface.co/settings/tokens
+hf repo create Safwan2003/ask-about-safwan --repo-type space --space_sdk gradio
 
-# push just the agent/ folder as the Space root
-huggingface-cli upload Safwan2003/ask-about-safwan ./agent . --repo-type=space \
+hf upload Safwan2003/ask-about-safwan ./agent . --repo-type space \
   --exclude ".venv/*" --exclude ".env" --exclude "__pycache__/*" --exclude "_smoke_test.py"
 ```
 
-(Or: `git clone https://huggingface.co/spaces/Safwan2003/ask-about-safwan`, copy
-the contents of `agent/` into it, `git add -A && git commit && git push`.)
-
 ## 3. Add the Groq key as a secret
 
-1. Open the Space → **Settings** → **Variables and secrets** → **New secret**.
-2. Name: `GROQ_API_KEY`. Value: your Groq key from
-   <https://console.groq.com/keys>.
-3. Save. The Space rebuilds automatically.
+1. Open <https://huggingface.co/spaces/Safwan2003/ask-about-safwan/settings>.
+2. **Variables and secrets** → **New secret**.
+3. Name: `GROQ_API_KEY`. Value: your key from <https://console.groq.com/keys>.
+4. Save. The Space rebuilds automatically.
 
 > Rotate the key first if it has been shared anywhere (chat, email, a paste). Set
 > the fresh value here and nowhere else.
@@ -43,19 +37,16 @@ First build installs `sentence-transformers` and downloads the MiniLM model
 (~90 MB) — allow 3–5 minutes. When the status is **Running**, test a few
 questions.
 
-The public URL is:
+Public URL:
 
 ```
 https://safwan2003-ask-about-safwan.hf.space
 ```
 
-## 5. Wire it into the portfolio
-
-Send that URL back and it gets set as the iframe `src` and the "open full
-screen" link in `index.html`, then committed.
+This is already wired into `index.html` (iframe `src` + "Open full screen" link),
+so the portfolio picks it up as soon as the Space is running.
 
 ## Updating later
 
-Edit `agent/knowledge/*.md` or `agent/app.py`, then re-run the `huggingface-cli
-upload` command (or push from the cloned Space repo). The Space redeploys on
-push.
+Edit `agent/knowledge/*.md` or `agent/app.py`, then re-run the `hf upload` command.
+The Space redeploys on push.
