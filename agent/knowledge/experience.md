@@ -43,9 +43,12 @@ Responsibilities and shipped work:
 
 ## Bachelor of Science in Computer Science — Salim Habib University, 2022 – June 2026
 
-Karachi, Pakistan. Specialization: Data Science, Machine Learning & AI.
+Karachi, Pakistan. A general BSc in Computer Science (no formal specialization
+track); Safwan chose electives in machine learning, deep learning, and data
+science.
 
-- Final Year Project: AI-Driven Lunar Soil Composition Analysis System, developed
-  in alignment with SUPARCO's ICUBE-Qamar lunar satellite mission.
+- Final Year Project: AI-Driven Lunar Soil Composition Analysis System, built
+  around the published sensor specifications of Pakistan's ICUBE-Qamar lunar
+  mission.
 - Relevant coursework: Machine Learning, Deep Learning, Database Systems,
   Statistics & Probability, Data Structures & Algorithms.

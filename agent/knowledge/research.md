@@ -3,8 +3,10 @@
 **Title:** Med-GReF: Evidence-Guided Multimodal Fusion and Hallucination
 Verification for Medical Vision-Language Reasoning.
 
-**Status:** Submitted to NeurIPS 2026 (under anonymous review). Paper PDF is
-linked from the portfolio.
+**Status:** In-progress research project. A working paper has been drafted in
+NeurIPS format but has NOT been submitted or peer-reviewed. The draft PDF is
+linked from the portfolio. Do not say it is "submitted to NeurIPS", "accepted",
+"published", or "under review".
 
 ## Problem
 

@@ -2,10 +2,11 @@
 
 Safwan Ali is an AI Engineer based in Karachi, Pakistan.
 
-He is a final-year Computer Science (BSCS) student at Salim Habib University
-(graduating June 2026), specializing in Data Science, Machine Learning, and AI.
-Alongside the degree he works as an AI Engineer at MarkyTech, where a three-month
-AI internship converted into an ongoing part-time engineering role.
+He is a final-year Computer Science (BSc) student at Salim Habib University
+(graduating June 2026), with elective coursework in Machine Learning, Deep
+Learning, and data science. Alongside the degree he works as an AI Engineer at
+MarkyTech, where a three-month AI internship converted into an ongoing part-time
+engineering role.
 
 His work spans the full AI development lifecycle: LLM-powered chatbots, RAG
 pipelines, real-time voice AI agents, agentic multi-agent workflows, computer
@@ -22,8 +23,9 @@ also does applied research on trustworthy multimodal reasoning.
   audio, barge-in / interruption handling, and multi-turn conversational state.
 - Computer vision and generative media — segmentation, CNNs, and GPU-served image
   and video generation engines.
-- Applied research — evidence-guided medical vision-language reasoning (Med-GReF)
-  and a SUPARCO-aligned lunar soil composition analysis system.
+- Applied research — evidence-guided medical vision-language reasoning (Med-GReF,
+  an in-progress working paper) and a final-year lunar soil composition analysis
+  project built around Pakistan's ICUBE-Qamar mission specifications.
 
 ## Contact
 

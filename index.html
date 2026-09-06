@@ -188,10 +188,9 @@
       <a class="btn" href="assets/SafwanAli_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
     </div>
     <div class="stats rv">
-      <div><b>1+ yr</b><span>Shipping production AI</span></div>
+      <div><b>1+ yr</b><span>In an AI engineering role</span></div>
       <div><b>30+</b><span>Public repositories</span></div>
-      <div><b>NeurIPS&nbsp;2026</b><span>Research submission</span></div>
-      <div><b>0.91</b><span>Med-GReF accuracy</span></div>
+      <div><b>2026</b><span>BSc Computer Science</span></div>
     </div>
   </section>
 
@@ -208,11 +207,12 @@
           lifecycle — LLM chatbots and RAG pipelines, real-time voice agents with streaming
           STT/TTS and barge-in handling, agentic multi-agent workflows with AutoGen and
           AgentScope, and generative-media engines served on GPU infrastructure.</p>
-        <p>Alongside that I do applied research. <strong>Med-GReF</strong> is an evidence-guided
-          fusion framework with a hallucination verifier for medical vision-language models,
-          submitted to NeurIPS 2026. My final-year project estimates lunar soil composition
-          from rover imagery, aligned with SUPARCO's ICUBE-Qamar mission.</p>
-        <p>I finish my BSCS at Salim Habib University, Karachi, in June 2026.</p>
+        <p>Alongside that I do applied research. <strong>Med-GReF</strong> is an in-progress
+          working paper — an evidence-guided fusion framework with a hallucination verifier
+          for medical vision-language models. My final-year project estimates lunar soil
+          composition from rover imagery, built around the published sensor specifications of
+          Pakistan's ICUBE-Qamar lunar mission.</p>
+        <p>I finish my BSc in Computer Science at Salim Habib University, Karachi, in June 2026.</p>
       </div>
     </div>
   </section>
@@ -263,23 +263,23 @@
       </article>
 
       <article class="card rv">
-        <div class="top"><span class="tag">Research · NeurIPS 2026</span></div>
+        <div class="top"><span class="tag">Research · working paper</span></div>
         <h3>Med-GReF</h3>
-        <p>Evidence-guided multimodal fusion and an NLI hallucination verifier for medical
-          vision-language reasoning. Accuracy 0.817 → 0.912, ROC-AUC 0.570 → 0.881,
-          undetected hallucinations cut ~2.4×.</p>
+        <p>An in-progress research project: evidence-guided multimodal fusion and an NLI
+          hallucination verifier for medical vision-language reasoning. Draft results —
+          accuracy 0.817 → 0.912, ROC-AUC 0.570 → 0.881, undetected hallucinations cut ~2.4×.</p>
         <div class="stack">BiomedCLIP · PubMedBERT · radiomics · Grad-CAM · MedGemma-4B (QLoRA)</div>
         <div class="links">
-          <a href="assets/Med-GReF_Paper.pdf" target="_blank" rel="noopener">Paper (PDF) ↗</a>
+          <a href="assets/Med-GReF_Paper.pdf" target="_blank" rel="noopener">Draft paper (PDF) ↗</a>
         </div>
       </article>
 
       <article class="card rv">
-        <div class="top"><span class="tag">Final year project · SUPARCO</span></div>
+        <div class="top"><span class="tag">Final year project</span></div>
         <h3>Lunar Soil Composition Analysis</h3>
         <p>Estimates six mineral oxides from 457 Chang'e-3 rover images, calibrated to APXS
-          ground truth and aligned with the ICUBE-Qamar sensor spec. SAM 2.1 segmentation,
-          a ResNet-18 classifier, and LLM-generated mission reports.</p>
+          ground truth and built around the published ICUBE-Qamar sensor specification.
+          SAM 2.1 segmentation, a ResNet-18 classifier, and LLM-generated mission reports.</p>
         <div class="stack">Python · SAM 2.1 · ResNet-18 · Gemini 2.0 Flash · Streamlit</div>
         <div class="links">
           <a href="https://github.com/Safwan2003/AI-Driven-Lunar-Soil-Composition-Analysis-Using-Imagery-and-Large-Language-Models" target="_blank" rel="noopener">Code ↗</a>
@@ -287,39 +287,13 @@
       </article>
 
       <article class="card rv">
-        <div class="top"><span class="tag">Voice AI</span></div>
-        <h3>Real-time Voice Agents</h3>
-        <p>Streaming speech-to-text → LLM turn → streaming text-to-speech, with low-latency
-          audio, barge-in / interruption handling, and multi-turn conversational state for
-          automated calls and voice support.</p>
-        <div class="stack">Python · streaming STT/TTS · WebSockets</div>
-        <div class="links">
-          <a href="https://github.com/Safwan2003/voice" target="_blank" rel="noopener">Code ↗</a>
-          <a href="https://github.com/Safwan2003/voice-streaming" target="_blank" rel="noopener">Streaming ↗</a>
-        </div>
-      </article>
-
-      <article class="card rv">
-        <div class="top"><span class="tag">Multi-agent</span></div>
-        <h3>Busman AI — Leads Scraper</h3>
-        <p>A multi-agent FastAPI server that writes search queries, scrapes and enriches leads
-          with Crawl4AI, and scores buying signals with an LLM. Shipped as the lead-generation
-          component of a commercial SaaS product.</p>
-        <div class="stack">Python · FastAPI · Crawl4AI · litellm</div>
-        <div class="links">
-          <a href="https://github.com/Safwan2003/ai_leads_scraper_final_server" target="_blank" rel="noopener">Code ↗</a>
-        </div>
-      </article>
-
-      <article class="card rv">
-        <div class="top"><span class="tag">Generative media</span></div>
-        <h3>Vidra — AI Video Director</h3>
-        <p>An agentic pipeline where collaborating agents write, illustrate, animate, and
-          narrate marketing videos from a single prompt.</p>
-        <div class="stack">Multi-agent · generative media · RunPod GPU</div>
-        <div class="links">
-          <a href="https://github.com/Safwan2003/Vidra-Your-AI-Video-Director" target="_blank" rel="noopener">Code ↗</a>
-        </div>
+        <div class="top"><span class="tag">Commercial product · not open source</span></div>
+        <h3>Production AI systems</h3>
+        <p>Work shipped inside a commercial SaaS product: real-time streaming voice agents
+          (STT → LLM → TTS with barge-in and multi-turn state), a multi-agent lead-generation
+          pipeline (FastAPI, Crawl4AI, LLM buying-signal scoring), and GPU-served generative
+          media tooling. More detail under <a href="#experience" style="color:var(--accent-ink);font-weight:500">Experience</a>.</p>
+        <div class="stack">Python · FastAPI · LangChain · AutoGen · streaming STT/TTS · RunPod</div>
       </article>
 
       <article class="card rv">
@@ -376,9 +350,10 @@
         <div>
           <h3>BSc Computer Science</h3>
           <div class="where">Salim Habib University · Karachi</div>
-          <p>Specialization in Data Science, Machine Learning &amp; AI. Final-year project:
-            AI-driven lunar soil composition analysis, aligned with SUPARCO's ICUBE-Qamar
-            mission. Coursework: ML, Deep Learning, Database Systems, Statistics, DSA.</p>
+          <p>Elective coursework in Machine Learning, Deep Learning, Statistics, Database
+            Systems, and Data Structures &amp; Algorithms. Final-year project: AI-driven lunar
+            soil composition analysis, built around Pakistan's ICUBE-Qamar mission
+            specifications.</p>
         </div>
       </div>
     </div>
