@@ -5,3 +5,11 @@ node_modules/
 .vscode/
 .idea/
 dist/
+
+# python / agent
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+agent/.env

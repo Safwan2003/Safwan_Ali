@@ -1,46 +1,52 @@
-# Safwan_Ali
+# Safwan Ali — portfolio
 
-Personal portfolio for **Safwan Ali** — AI Engineer & Data Scientist (Karachi, Pakistan).
+Personal portfolio for **Safwan Ali**, AI Engineer (Karachi, Pakistan).
 
-The whole page is a **live WebGL scene**. A Kyoto-inspired night environment —
-geometry, textures, normal maps, post-processing — is generated at runtime with
-Three.js, and the portfolio content (about, projects, experience, contact) is set
-into it as scroll-driven chapters with a giant 3D wordmark and camera moves.
+Live: <https://safwan2003.github.io/Safwan_Ali/>
 
-No build step, no framework. The only assets are `three.min.js` and two subset
-fonts, both served locally from `secret-pathways-assets/`.
+Zero build. A static `index.html` for GitHub Pages plus a live AI agent that runs
+on Hugging Face Spaces.
 
-## Structure
+## Layout
 
 ```
-Safwan_Ali/
-├── index.html                     # entire page — markup, CSS, and the WebGL scene
-├── secret-pathways-assets/        # three.js, subset fonts, foreground art
-└── assets/
-    ├── SafwanAli_Resume.pdf
-    └── Med-GReF_Paper.pdf
+.
+├── index.html          # the whole site — semantic HTML, inline CSS, minimal JS
+├── assets/
+│   ├── fonts.css        # self-hosted Onest subset (no external requests)
+│   ├── SafwanAli_Resume.pdf
+│   └── Med-GReF_Paper.pdf
+├── agent/              # "Ask about Safwan" — RAG + tool-using agent (HF Space)
+│   ├── app.py
+│   ├── knowledge/       # markdown source of truth for the agent
+│   ├── requirements.txt
+│   ├── README.md
+│   └── DEPLOY.md
+└── docs/superpowers/specs/   # design notes
 ```
 
-## Accessibility & fallback
+## The live agent
 
-- All scroll/reveal motion respects `prefers-reduced-motion`.
-- If WebGL is unavailable the page drops to a static `no-webgl` render with the
-  same content.
-- The scroll rail and nav are keyboard-operable.
+`agent/` is a Gradio app: a Groq-hosted model answers questions about Safwan by
+calling two tools — semantic search over `agent/knowledge/*.md`, and a live call
+to the GitHub API. It is deployed separately as a Hugging Face Space and embedded
+in `index.html`. See [`agent/README.md`](agent/README.md) and
+[`agent/DEPLOY.md`](agent/DEPLOY.md).
 
 ## Run locally
 
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+python3 -m http.server 8000      # site → http://localhost:8000
+cd agent && python app.py        # agent (needs a GROQ_API_KEY in agent/.env)
 ```
 
-## Deploy (GitHub Pages)
+## Deploy
 
-Repo **Settings → Pages → Deploy from a branch → `main` / root**. Publishes at
-`https://safwan2003.github.io/Safwan_Ali/`.
+- **Site:** GitHub repo → Settings → Pages → Deploy from branch → `main` / root.
+- **Agent:** see [`agent/DEPLOY.md`](agent/DEPLOY.md).
 
 ## Contact
 
 - safwanalimukaddam@gmail.com
-- https://github.com/Safwan2003
-- https://linkedin.com/in/safwan-ali-281aa1275
+- <https://github.com/Safwan2003>
+- <https://linkedin.com/in/safwan-ali-281aa1275>
