@@ -2,11 +2,10 @@
 
 Safwan Ali is an AI Engineer based in Karachi, Pakistan.
 
-He is a final-year Computer Science (BSc) student at Salim Habib University
-(graduating June 2026), with elective coursework in Machine Learning, Deep
-Learning, and data science. Alongside the degree he works as an AI Engineer at
-MarkyTech, where a three-month AI internship converted into an ongoing part-time
-engineering role.
+He holds a BSc in Computer Science from Salim Habib University (graduated June
+2026), with elective coursework in Machine Learning, Deep Learning, and data
+science. He works as an AI Engineer at MarkyTech, where a three-month AI
+internship converted into an ongoing part-time engineering role.
 
 His work spans the full AI development lifecycle: LLM-powered chatbots, RAG
 pipelines, real-time voice AI agents, agentic multi-agent workflows, computer

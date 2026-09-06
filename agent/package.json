@@ -1,0 +1,11 @@
+{
+  "name": "ask-about-safwan",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Grounded, tool-using chat agent about Safwan Ali — Vercel Edge Function + Groq.",
+  "scripts": {
+    "sync": "node scripts/bundle.mjs",
+    "dev": "vercel dev"
+  }
+}

@@ -1,52 +1,48 @@
-# Deploying the agent to Hugging Face Spaces
+# Deploying the agent to Vercel
 
-One-time, ~10 minutes. Nothing secret is committed to git — the key lives only as
-a Space secret.
+Free. ~5 minutes. The Groq key is a server-side environment variable — it never
+reaches the browser and is never committed to git.
 
-## 1. Authenticate the CLI
+> Why not Hugging Face Spaces? HF now requires a paid PRO plan to run Gradio/Docker
+> Spaces on the free CPU tier. Vercel's free tier runs this at no cost.
+
+## Option A — Vercel dashboard (no CLI)
+
+1. Push this repo to GitHub (already done).
+2. Go to <https://vercel.com/new> and **Import** `Safwan2003/Safwan_Ali`.
+3. **Root Directory:** set it to `agent`.
+4. **Environment Variables:** add `GROQ_API_KEY` = your key from
+   <https://console.groq.com/keys>.
+5. **Deploy.**
+6. Note the production URL (e.g. `https://safwan-ali.vercel.app` or
+   `https://ask-about-safwan.vercel.app`). Its `/api/chat` is the endpoint.
+
+## Option B — Vercel CLI
 
 ```bash
-pip install -U "huggingface_hub[cli]"
-hf auth login          # paste a WRITE token from https://huggingface.co/settings/tokens
+npm i -g vercel
+cd agent
+vercel                       # link / create the project, first deploy (preview)
+vercel env add GROQ_API_KEY  # paste the key, choose Production
+vercel --prod                # production deploy
 ```
 
-## 2. Create the Space and push `agent/`
+## After deploying
 
-From the repo root:
+1. Open the deploy URL — you should get a working chat page.
+2. In the portfolio's `index.html`, set:
 
-```bash
-hf repo create Safwan2003/ask-about-safwan --repo-type space --space_sdk gradio
+   ```js
+   var AGENT_API = 'https://<your-vercel-url>/api/chat';
+   ```
 
-hf upload Safwan2003/ask-about-safwan ./agent . --repo-type space \
-  --exclude ".venv/*" --exclude ".env" --exclude "__pycache__/*" --exclude "_smoke_test.py"
-```
+   (Send the URL back and it gets wired in + committed.)
 
-## 3. Add the Groq key as a secret
+## Rotate the key
 
-1. Open <https://huggingface.co/spaces/Safwan2003/ask-about-safwan/settings>.
-2. **Variables and secrets** → **New secret**.
-3. Name: `GROQ_API_KEY`. Value: your key from <https://console.groq.com/keys>.
-4. Save. The Space rebuilds automatically.
+If the Groq key has been shared anywhere (chat, a paste), create a fresh one at
+<https://console.groq.com/keys>, update the Vercel env var, and redeploy.
 
-> Rotate the key first if it has been shared anywhere (chat, email, a paste). Set
-> the fresh value here and nowhere else.
+## Updating what the agent knows
 
-## 4. Wait for the build
-
-First build installs `sentence-transformers` and downloads the MiniLM model
-(~90 MB) — allow 3–5 minutes. When the status is **Running**, test a few
-questions.
-
-Public URL:
-
-```
-https://safwan2003-ask-about-safwan.hf.space
-```
-
-This is already wired into `index.html` (iframe `src` + "Open full screen" link),
-so the portfolio picks it up as soon as the Space is running.
-
-## Updating later
-
-Edit `agent/knowledge/*.md` or `agent/app.py`, then re-run the `hf upload` command.
-The Space redeploys on push.
+Edit `knowledge/*.md` → `npm run sync` → commit/push (Vercel redeploys on push).

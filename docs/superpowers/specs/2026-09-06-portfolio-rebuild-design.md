@@ -30,22 +30,30 @@ real code that you personally built" are satisfied.
   meta description, Open Graph tags, favicon.
 - Every outbound link verified reachable before completion.
 
-### 2. `agent/` — Hugging Face Space (Gradio)
+### 2. `agent/` — Vercel Edge Function
 
-- `app.py`: Gradio `ChatInterface`. Groq chat model with a tool-calling loop.
+> Originally planned as a Hugging Face Gradio Space; HF now requires paid PRO for
+> Gradio Spaces on free CPU, so this moved to Vercel's free tier.
+
+- `api/chat.js`: Vercel Edge Function. `POST { messages }` → grounded answer.
   - Model: `openai/gpt-oss-120b` (Groq), fallback `openai/gpt-oss-20b`.
-  - Tools:
-    - `search_profile(query)` — retrieval over `knowledge/*.md`, embedded with
-      `sentence-transformers` MiniLM, cosine similarity, top-k chunks.
-    - `list_github_repos()` — live GET to the public GitHub API for Safwan's repos.
-  - System prompt: answer only from retrieved evidence / tool output; refuse
-    politely when unknown; concise, recruiter-appropriate tone.
+  - Retrieval: `knowledge/*.md` bundled into `api/_knowledge.js`, chunked, scored
+    by keyword overlap; top ~4 chunks + a short CORE bio go into the system prompt
+    (keeps each call small — Groq free tier is 8k TPM).
+  - Tool: `get_github_repos()` — live GET to the public GitHub API (cached 10 min).
+  - System prompt: answer only from CORE + retrieved context + tool output; refuse
+    when unknown; concise, recruiter tone; hard rules against the inflated claims
+    (no "submitted"/"published" for Med-GReF, no "specialization", no "SUPARCO
+    project").
 - `knowledge/`: markdown source of truth — `about.md`, `experience.md`,
   `projects.md`, `research.md`, `skills.md`.
-- `requirements.txt`, `README.md` (architecture write-up — the repo is itself
-  portfolio material), `.env.example`.
-- `.env` holds `GROQ_API_KEY` locally only; git-ignored.
-- `DEPLOY.md`: step-by-step — create Space, push folder, set `GROQ_API_KEY` secret.
+- `public/index.html`: standalone chat page at the deploy root.
+- `scripts/bundle.mjs` (`npm run sync`), `package.json`, `vercel.json`, `README.md`,
+  `DEPLOY.md`, `.env.example`.
+- `.env` holds `GROQ_API_KEY` locally only; git-ignored. In production it is a
+  Vercel environment variable.
+- Portfolio integration: `index.html` has an inline chat widget posting to
+  `AGENT_API` (the Vercel `/api/chat` URL) — no iframe.
 
 ### 3. Cleanup
 
@@ -56,11 +64,20 @@ real code that you personally built" are satisfied.
 ## Deployment flow
 
 1. Claude builds everything; agent tested locally against the real key.
-2. Safwan creates the HF Space `Safwan2003/ask-about-safwan`, pushes `agent/`,
-   adds `GROQ_API_KEY` as a Space secret.
-3. Safwan gives Claude the Space URL; Claude wires it into `index.html`
-   (iframe `src` + "open full" link) and commits.
+2. Safwan imports the repo on Vercel with root directory `agent`, adds
+   `GROQ_API_KEY` as an env var, deploys.
+3. Safwan gives Claude the Vercel URL; Claude sets `AGENT_API` in `index.html`
+   and commits.
 4. GitHub repo Settings → Pages → deploy from `main` / root.
+
+## Honesty pass (2026-09-06, after user review)
+
+Corrected before submission: degree is a general BSc CS with *elective* ML/data
+coursework (not a specialization); Med-GReF is an *in-progress working paper*
+(not submitted/published); the lunar project is *self-directed*, built around
+public ICUBE-Qamar specs (early SUPARCO contact did not become a collaboration);
+voice + Busman work is *employer code* shown without repo links. "Final-year
+student" → "2026 graduate".
 
 ## Security note
 

@@ -6,10 +6,11 @@ node_modules/
 .idea/
 dist/
 
-# python / agent
+# agent
+.env
+agent/.env
+.vercel/
 __pycache__/
 *.pyc
 .venv/
 venv/
-.env
-agent/.env

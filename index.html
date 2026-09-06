@@ -99,12 +99,45 @@
   .demo-note{display:flex; flex-wrap:wrap; gap:10px 22px; margin:18px 0 26px; font-size:.9rem; color:var(--muted)}
   .demo-note span{display:inline-flex; align-items:center; gap:7px}
   .demo-note .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
-  .frame{
+  .chat{
     border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
     background:var(--surface); box-shadow:0 1px 2px rgba(0,0,0,.04);
   }
-  .frame iframe{display:block; width:100%; height:660px; border:0}
-  @media (max-width:640px){ .frame iframe{height:560px} }
+  .chat-log{
+    padding:20px; display:flex; flex-direction:column; gap:14px;
+    min-height:220px; max-height:440px; overflow-y:auto;
+  }
+  .msg{font-size:.95rem; line-height:1.6; max-width:90%; white-space:pre-wrap; word-wrap:break-word}
+  .msg.user{align-self:flex-end; background:var(--accent); color:#fff; padding:10px 14px; border-radius:14px 14px 4px 14px; white-space:pre-wrap}
+  .msg.bot{align-self:flex-start; color:var(--ink); display:flex; flex-direction:column; gap:7px}
+  .msg.bot.err .chat-answer{color:var(--accent-ink)}
+  .chat-status{display:flex; align-items:center; gap:9px; font-size:.83rem; color:var(--muted)}
+  .chat-status .spin{
+    width:11px; height:11px; border-radius:50%; flex:none;
+    border:2px solid var(--line); border-top-color:var(--accent); animation:spin .7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){ .chat-status .spin{animation:none} }
+  .chat-answer:empty{display:none}
+  .chat-ground{font-size:.78rem; color:var(--muted); opacity:.85}
+  .chat-ex{display:flex; flex-wrap:wrap; gap:8px; padding:0 20px 16px}
+  .chat-ex button{
+    font:inherit; font-size:.82rem; color:var(--muted); cursor:pointer;
+    background:transparent; border:1px solid var(--line); border-radius:999px; padding:6px 12px;
+    transition:border-color .15s,color .15s;
+  }
+  .chat-ex button:hover{border-color:var(--ink); color:var(--ink)}
+  .chat-form{display:flex; gap:0; border-top:1px solid var(--line)}
+  .chat-form input{
+    flex:1; font:inherit; font-size:.95rem; color:var(--ink); background:transparent;
+    border:0; padding:15px 18px; outline:none;
+  }
+  .chat-form button{
+    font:inherit; font-weight:600; font-size:.9rem; color:#fff; background:var(--accent);
+    border:0; padding:0 22px; cursor:pointer; transition:background .15s;
+  }
+  .chat-form button:hover{background:var(--accent-ink)}
+  .chat-form button:disabled{opacity:.5; cursor:default}
 
   /* work */
   .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
@@ -178,7 +211,7 @@
   <section class="hero">
     <p class="eyebrow rv">AI Engineer · Karachi, Pakistan</p>
     <h1 class="rv">I build and ship <span class="accent">production AI</span> — LLM, RAG, voice, and agentic systems.</h1>
-    <p class="lead rv">AI Engineer and a final-year Computer Science student. A year shipping
+    <p class="lead rv">AI Engineer and a 2026 Computer Science graduate. A year shipping
       real-time voice agents, RAG chatbots, and multi-agent workflows for a commercial SaaS
       product — plus applied research on trustworthy multimodal reasoning.</p>
     <div class="actions rv">
@@ -212,7 +245,7 @@
           for medical vision-language models. My final-year project estimates lunar soil
           composition from rover imagery, built around the published sensor specifications of
           Pakistan's ICUBE-Qamar lunar mission.</p>
-        <p>I finish my BSc in Computer Science at Salim Habib University, Karachi, in June 2026.</p>
+        <p>I graduated in Computer Science from Salim Habib University, Karachi, in June 2026.</p>
       </div>
     </div>
   </section>
@@ -223,25 +256,30 @@
     <div class="rv">
       <h2>Ask my AI about my work.</h2>
       <div class="demo-note">
-        <span><span class="dot"></span>Retrieval-augmented + tool-using agent</span>
-        <span><span class="dot"></span>Groq · Gradio · GitHub API</span>
-        <span><span class="dot"></span><a href="https://github.com/Safwan2003/Safwan_Ali/tree/main/agent" target="_blank" rel="noopener" style="color:var(--accent-ink);font-weight:500">Source code ↗</a></span>
+        <span><span class="dot"></span>Retrieval-augmented, tool-using</span>
+        <span><span class="dot"></span>Groq · Edge function · GitHub API</span>
+        <span><span class="dot"></span><a href="https://github.com/Safwan2003/Safwan_Ali/tree/main/agent" target="_blank" rel="noopener">Source code ↗</a></span>
       </div>
       <p class="lead" style="margin-bottom:26px">A model on Groq answers questions about my
-        background by calling two tools: semantic search over a curated knowledge base, and a
-        live call to the GitHub API. It's built to answer only from what those tools return.</p>
+        background, grounded in a curated knowledge base (keyword-retrieved per question) and
+        a live call to the GitHub API. The key stays server-side; it answers only from what it
+        retrieves.</p>
     </div>
-    <div class="frame rv">
-      <iframe
-        src="https://safwan2003-ask-about-safwan.hf.space"
-        title="Ask about Safwan — live AI agent"
-        loading="lazy"
-        referrerpolicy="no-referrer"
-        allow="clipboard-write"></iframe>
+    <div class="chat rv" id="chat">
+      <div class="chat-log" id="chatLog">
+        <div class="msg bot">Hi — ask me anything about Safwan's experience, projects, or research.</div>
+      </div>
+      <div class="chat-ex" id="chatEx">
+        <button type="button">What is Med-GReF?</button>
+        <button type="button">Does he have voice-AI experience?</button>
+        <button type="button">Show his GitHub repositories</button>
+        <button type="button">What roles is he open to?</button>
+      </div>
+      <form class="chat-form" id="chatForm" autocomplete="off">
+        <input id="chatInput" type="text" placeholder="Ask a question…" aria-label="Ask the agent a question" required>
+        <button type="submit" id="chatSend">Ask</button>
+      </form>
     </div>
-    <p class="rv" style="margin-top:16px;font-size:.9rem">
-      <a href="https://safwan2003-ask-about-safwan.hf.space" target="_blank" rel="noopener" style="color:var(--accent-ink);font-weight:600">Open full screen ↗</a>
-    </p>
   </section>
 
   <!-- work -->
@@ -252,12 +290,13 @@
       <article class="card feature rv">
         <div class="top"><span class="tag">Agent · this site</span></div>
         <h3>Ask about Safwan</h3>
-        <p>The agent embedded above. RAG over a markdown knowledge base with MiniLM
-          embeddings, a live GitHub-API tool, and a Groq model running the tool-calling loop.
-          Grounded, with a graceful TF-IDF fallback. Deployed on Hugging Face Spaces.</p>
-        <div class="stack">Python · Gradio · Groq (gpt-oss-120b) · sentence-transformers</div>
+        <p>The chat agent above. A Vercel Edge function keyword-retrieves the relevant
+          slices of a markdown knowledge base, runs a Groq model through a tool-calling loop
+          (with a live GitHub-API tool), and streams back a grounded answer. The API key
+          never leaves the server. One file, no framework.</p>
+        <div class="stack">JavaScript · Vercel Edge · Groq (gpt-oss-120b) · GitHub API</div>
         <div class="links">
-          <a href="https://safwan2003-ask-about-safwan.hf.space" target="_blank" rel="noopener">Live demo ↗</a>
+          <a href="#demo">Try it above ↑</a>
           <a href="https://github.com/Safwan2003/Safwan_Ali/tree/main/agent" target="_blank" rel="noopener">Code ↗</a>
         </div>
       </article>
@@ -403,6 +442,112 @@
     rv.forEach(function(el){ io.observe(el); });
   } else {
     rv.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- live agent ---- */
+  // Deployed separately (see agent/DEPLOY.md). Set this to your Vercel URL.
+  var AGENT_API = 'https://ask-about-safwan.vercel.app/api/chat';
+
+  var log = document.getElementById('chatLog');
+  var form = document.getElementById('chatForm');
+  var input = document.getElementById('chatInput');
+  var send = document.getElementById('chatSend');
+  var exWrap = document.getElementById('chatEx');
+  var convo = [];
+  var busy = false;
+
+  function el(tag, cls, text){
+    var d = document.createElement(tag);
+    if (cls) d.className = cls;
+    if (text != null) d.textContent = text;
+    return d;
+  }
+  function scroll(){ log.scrollTop = log.scrollHeight; }
+
+  async function ask(q){
+    q = (q || '').trim();
+    if (busy || !q) return;
+    busy = true; send.disabled = true; input.value = '';
+    if (exWrap && exWrap.parentNode) exWrap.remove();
+
+    log.appendChild(el('div', 'msg user', q));
+    convo.push({ role: 'user', content: q });
+
+    var wrap = el('div', 'msg bot');
+    var status = el('div', 'chat-status');
+    status.appendChild(el('span', 'spin'));
+    var statusText = el('span', null, 'Starting');
+    status.appendChild(statusText);
+    var body = el('div', 'chat-answer');
+    var ground = el('div', 'chat-ground');
+    ground.hidden = true;
+    wrap.appendChild(status); wrap.appendChild(body); wrap.appendChild(ground);
+    log.appendChild(wrap); scroll();
+
+    var answer = '';
+    var failed = false;
+
+    function finish(){
+      status.remove();
+      if (!failed && answer.trim()) convo.push({ role: 'assistant', content: answer.trim() });
+      if (!body.textContent && !failed) body.textContent = '(no answer)';
+      busy = false; send.disabled = false; input.focus(); scroll();
+    }
+
+    try {
+      var res = await fetch(AGENT_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: convo })
+      });
+      if (!res.ok || !res.body) throw new Error('http ' + res.status);
+
+      var reader = res.body.getReader();
+      var dec = new TextDecoder();
+      var buf = '';
+      for (;;) {
+        var r = await reader.read();
+        if (r.done) break;
+        buf += dec.decode(r.value, { stream: true });
+        var lines = buf.split('\n');
+        buf = lines.pop();
+        for (var i = 0; i < lines.length; i++){
+          var line = lines[i].trim();
+          if (!line) continue;
+          var ev; try { ev = JSON.parse(line); } catch(e){ continue; }
+          if (ev.type === 'status'){
+            statusText.textContent = ev.text + '…';
+          } else if (ev.type === 'answer_start'){
+            statusText.textContent = 'Writing…';
+            if (ev.grounding){
+              var bits = [];
+              if (ev.grounding.sources && ev.grounding.sources.length)
+                bits.push('grounded in ' + ev.grounding.sources.join(', ').replace(/\.md/g, ''));
+              if (ev.grounding.tool) bits.push('live GitHub API');
+              if (bits.length){ ground.textContent = '↳ ' + bits.join(' · '); ground.hidden = false; }
+            }
+          } else if (ev.type === 'token'){
+            answer += ev.text;
+            body.textContent = answer.replace(/\*\*/g, '').replace(/^\s*#+\s+/gm, '');
+            scroll();
+          } else if (ev.type === 'error'){
+            failed = true; wrap.classList.add('err');
+            body.textContent = ev.text; ground.hidden = true; scroll();
+          }
+        }
+      }
+    } catch (e) {
+      failed = true; wrap.classList.add('err');
+      body.textContent = "The live agent isn't reachable right now — it may still be deploying. The full source is on GitHub (link above), or email safwanalimukaddam@gmail.com.";
+    }
+    finish();
+  }
+
+  if (form) {
+    form.addEventListener('submit', function(e){ e.preventDefault(); ask(input.value); });
+    if (exWrap) exWrap.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){ ask(b.textContent); });
+    });
   }
 </script>
 

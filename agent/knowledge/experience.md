@@ -41,11 +41,11 @@ Responsibilities and shipped work:
 
 # Education
 
-## Bachelor of Science in Computer Science — Salim Habib University, 2022 – June 2026
+## Bachelor of Science in Computer Science — Salim Habib University, 2022 – June 2026 (graduated)
 
 Karachi, Pakistan. A general BSc in Computer Science (no formal specialization
 track); Safwan chose electives in machine learning, deep learning, and data
-science.
+science. Graduated June 2026.
 
 - Final Year Project: AI-Driven Lunar Soil Composition Analysis System, built
   around the published sensor specifications of Pakistan's ICUBE-Qamar lunar

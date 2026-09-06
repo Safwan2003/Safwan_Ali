@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask about Safwan Ali</title>
+<meta name="description" content="A grounded, tool-using chat agent that answers questions about Safwan Ali, AI Engineer.">
+<style>
+  :root{ color-scheme:light dark; --bg:#fbfaf7; --surface:#fff; --ink:#1b1a17; --muted:#6b6862; --line:#e6e3db; --accent:#b23b2e; }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#141311; --surface:#1c1b18; --ink:#ece9e2; --muted:#a29d93; --line:#302e29; --accent:#e0705f; } }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  .wrap{max-width:720px; margin:0 auto; padding:32px 20px 48px}
+  h1{font-size:1.4rem; margin:0 0 4px}
+  p.sub{color:var(--muted); margin:0 0 22px; font-size:.9rem}
+  p.sub a{color:var(--accent)}
+  .card{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--surface)}
+  .log{padding:20px; display:flex; flex-direction:column; gap:16px; min-height:280px; max-height:64vh; overflow-y:auto}
+  .msg{font-size:.95rem; max-width:92%; white-space:pre-wrap; word-wrap:break-word}
+  .msg.user{align-self:flex-end; background:var(--accent); color:#fff; padding:10px 14px; border-radius:14px 14px 4px 14px}
+  .msg.bot{align-self:flex-start; display:flex; flex-direction:column; gap:7px}
+  .msg.bot.err .answer{color:var(--accent)}
+  .status{display:flex; align-items:center; gap:9px; font-size:.83rem; color:var(--muted)}
+  .spin{width:11px;height:11px;border-radius:50%;flex:none;border:2px solid var(--line);border-top-color:var(--accent);animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.spin{animation:none}}
+  .answer:empty{display:none}
+  .ground{font-size:.78rem;color:var(--muted);opacity:.85}
+  .ex{display:flex; flex-wrap:wrap; gap:8px; padding:0 20px 16px}
+  .ex button{font:inherit; font-size:.82rem; color:var(--muted); cursor:pointer; background:transparent; border:1px solid var(--line); border-radius:999px; padding:6px 12px}
+  .ex button:hover{color:var(--ink); border-color:var(--ink)}
+  form{display:flex; border-top:1px solid var(--line)}
+  input{flex:1; font:inherit; font-size:.95rem; color:var(--ink); background:transparent; border:0; padding:15px 18px; outline:none}
+  button.send{font:inherit; font-weight:600; color:#fff; background:var(--accent); border:0; padding:0 22px; cursor:pointer}
+  button.send:disabled{opacity:.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Ask about Safwan Ali</h1>
+  <p class="sub">Grounded, tool-using agent — Groq + a Vercel Edge function + the GitHub API.
+    <a href="https://github.com/Safwan2003/Safwan_Ali/tree/main/agent">Source</a> ·
+    <a href="https://safwan2003.github.io/Safwan_Ali/">Portfolio</a></p>
+  <div class="card">
+    <div class="log" id="log"><div class="msg bot"><div class="answer">Hi — ask me anything about Safwan's experience, projects, or research.</div></div></div>
+    <div class="ex" id="ex">
+      <button type="button">What is Med-GReF?</button>
+      <button type="button">Does he have voice-AI experience?</button>
+      <button type="button">Show his GitHub repositories</button>
+    </div>
+    <form id="form" autocomplete="off">
+      <input id="input" type="text" placeholder="Ask a question…" aria-label="Question" required>
+      <button class="send" id="send" type="submit">Ask</button>
+    </form>
+  </div>
+</div>
+<script>
+  var API = '/api/chat';
+  var log = document.getElementById('log'), form = document.getElementById('form');
+  var input = document.getElementById('input'), send = document.getElementById('send'), ex = document.getElementById('ex');
+  var convo = [], busy = false;
+  function el(t,c,x){ var d=document.createElement(t); if(c)d.className=c; if(x!=null)d.textContent=x; return d; }
+  function scroll(){ log.scrollTop = log.scrollHeight; }
+
+  async function ask(q){
+    q=(q||'').trim(); if(busy||!q) return;
+    busy=true; send.disabled=true; input.value=''; if(ex&&ex.parentNode) ex.remove();
+    log.appendChild(el('div','msg user',q)); convo.push({role:'user',content:q});
+
+    var wrap=el('div','msg bot'), status=el('div','status'); status.appendChild(el('span','spin'));
+    var st=el('span',null,'Starting'); status.appendChild(st);
+    var body=el('div','answer'), ground=el('div','ground'); ground.hidden=true;
+    wrap.append(status,body,ground); log.appendChild(wrap); scroll();
+
+    var answer='', failed=false;
+    try{
+      var res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:convo})});
+      if(!res.ok||!res.body) throw new Error('http '+res.status);
+      var reader=res.body.getReader(), dec=new TextDecoder(), buf='';
+      for(;;){
+        var r=await reader.read(); if(r.done) break;
+        buf+=dec.decode(r.value,{stream:true});
+        var lines=buf.split('\n'); buf=lines.pop();
+        for(var i=0;i<lines.length;i++){
+          var line=lines[i].trim(); if(!line) continue;
+          var ev; try{ ev=JSON.parse(line); }catch(e){ continue; }
+          if(ev.type==='status') st.textContent=ev.text+'…';
+          else if(ev.type==='answer_start'){
+            st.textContent='Writing…';
+            if(ev.grounding){ var b=[]; if(ev.grounding.sources&&ev.grounding.sources.length) b.push('grounded in '+ev.grounding.sources.join(', ').replace(/\.md/g,'')); if(ev.grounding.tool) b.push('live GitHub API'); if(b.length){ ground.textContent='↳ '+b.join(' · '); ground.hidden=false; } }
+          }
+          else if(ev.type==='token'){ answer+=ev.text; body.textContent=answer.replace(/\*\*/g,'').replace(/^\s*#+\s+/gm,''); scroll(); }
+          else if(ev.type==='error'){ failed=true; wrap.classList.add('err'); body.textContent=ev.text; ground.hidden=true; }
+        }
+      }
+    }catch(e){ failed=true; wrap.classList.add('err'); body.textContent='The agent is unreachable right now — it may still be deploying. Try again shortly.'; }
+    status.remove();
+    if(!failed&&answer.trim()) convo.push({role:'assistant',content:answer.trim()});
+    if(!body.textContent) body.textContent='(no answer)';
+    busy=false; send.disabled=false; input.focus(); scroll();
+  }
+  form.addEventListener('submit', function(e){ e.preventDefault(); ask(input.value); });
+  if(ex) ex.querySelectorAll('button').forEach(function(b){ b.addEventListener('click', function(){ ask(b.textContent); }); });
+</script>
+</body>
+</html>
