@@ -41,16 +41,36 @@ The following were built and deployed by Safwan inside MarkyTech's commercial
 products. He wrote and owns the implementation knowledge, but the code is the
 company's and is not publicly linkable.
 
-- **Real-time voice AI agents** — streaming STT, LLM turn, streaming TTS;
-  low-latency audio, barge-in / interruption handling, multi-turn conversational
-  state for automated calls and voice support.
+- **Real-time voice AI agents** — streaming speech pipeline: self-hosted Whisper
+  large-v3 (STT), Deepgram and OmniVoice (TTS, with Piper for Urdu), and Claude
+  via API for the conversational turn; low-latency audio, barge-in / interruption
+  handling, multi-turn conversational state for automated calls and voice support.
 - **Busman AI lead-generation system** — a multi-agent FastAPI service that
   writes search queries, scrapes and enriches leads with Crawl4AI, and scores
   buying signals via an LLM. Safwan built this lead-generation component.
 - **Generative media tooling** — hyper-realistic image/video generation engines
-  served on GPU infrastructure (RunPod).
-- LLM chatbots and RAG pipelines for clients (OpenAI, Gemini, Claude; LangChain).
+  served on GPU infrastructure.
+- LLM chatbots for clients on the OpenAI, Gemini, and Claude APIs.
 - Multi-agent business-process automation with AutoGen and AgentScope.
+
+## "Ask about Safwan" — retrieval-grounded portfolio agent
+
+Stack: JavaScript, Vercel Edge Functions, Groq (openai/gpt-oss-120b).
+Repo: https://github.com/Safwan2003/Safwan_Ali/tree/main/agent
+
+The chat agent on this portfolio site, built end to end by Safwan. This is his
+own retrieval-augmented-generation build — not employer work.
+
+- Keyword-retrieval RAG over a curated Markdown knowledge base: the knowledge
+  files are chunked by heading and bundled at build time; a keyword scorer picks
+  the few most relevant chunks per question and injects them as grounded context.
+- Strict grounding: the model answers only from the retrieved context, a short
+  core bio, and tool output, and is instructed to decline and point to email when
+  the answer is not there, and to stay on the topic of Safwan.
+- A live tool call (get_github_repos) hits the public GitHub API for an
+  up-to-date repository list, with a short server-side cache.
+- Responses are token-streamed over newline-delimited JSON; the model API key
+  stays server-side on the Edge function.
 
 ## Heart Disease Prediction — Random Forest Classifier
 

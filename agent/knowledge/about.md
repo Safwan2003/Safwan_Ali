@@ -7,15 +7,16 @@ He holds a BSc in Computer Science from Salim Habib University (graduated June
 science. He works as an AI Engineer at MarkyTech, where a three-month AI
 internship converted into an ongoing part-time engineering role.
 
-His work spans the full AI development lifecycle: LLM-powered chatbots, RAG
-pipelines, real-time voice AI agents, agentic multi-agent workflows, computer
-vision, generative AI tooling, and containerized full-stack AI applications. He
-also does applied research on trustworthy multimodal reasoning.
+His work spans the full AI development lifecycle: LLM-powered chatbots,
+retrieval-grounded agents, real-time voice AI agents, agentic multi-agent
+workflows, computer vision, generative AI tooling, and containerized full-stack
+AI applications. He also does applied research on trustworthy multimodal
+reasoning.
 
 ## Focus areas
 
-- LLM application engineering — chatbots, RAG over vector-indexed knowledge bases,
-  orchestration with LangChain.
+- LLM application engineering — chatbots and retrieval-grounded agents (keyword
+  retrieval over a curated knowledge base), prompt design, and orchestration.
 - Agentic systems — multi-agent workflows with AutoGen and AgentScope for
   multi-step business automation.
 - Voice AI — streaming speech-to-text and text-to-speech pipelines with low-latency

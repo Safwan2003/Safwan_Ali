@@ -2,10 +2,10 @@
 
 **Languages:** Python, JavaScript, TypeScript, SQL.
 
-**LLM & Generative AI:** LangChain, AutoGen, AgentScope, OpenAI API, Gemini API,
-Claude API, Groq, Hugging Face, RAG pipelines, vector search & embeddings, prompt
-engineering, agentic / multi-agent workflows, voice AI agents (STT/TTS),
-open-source LLM fine-tuning (LoRA / QLoRA), litellm.
+**LLM & Generative AI:** AutoGen, AgentScope, OpenAI API, Gemini API, Claude API,
+Groq, Hugging Face, RAG pipelines, keyword retrieval & grounding, prompt
+engineering, agentic / multi-agent workflows, voice AI agents (streaming STT/TTS
+— Whisper, Piper, Deepgram), open-source LLM fine-tuning (LoRA / QLoRA), litellm.
 
 **ML / Deep Learning:** PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, CNNs,
 SVMs, Random Forest, K-Means, SAM 2.1, ResNet, BiomedCLIP, computer vision, NLP,

@@ -10,20 +10,22 @@ Responsibilities and shipped work:
 
 - Design, build, and deploy end-to-end AI-driven SaaS features, bridging AI
   research and production tooling for the commercial market.
-- Built real-time voice AI agents with streaming STT and TTS pipelines — handling
+- Built real-time voice AI agents with a streaming speech pipeline: self-hosted
+  Whisper large-v3 for speech-to-text; Deepgram and OmniVoice for text-to-speech,
+  with Piper for Urdu; and Claude (via API) for the conversational turn — handling
   low-latency audio streaming, interruption / barge-in handling, and multi-turn
   conversational state for automated client calls and voice-driven support.
 - Engineered the lead-generation component for Busman AI, an AI-powered business
   automation product, integrating conversational AI to qualify and capture leads
   through chat and voice flows.
-- Built and deployed LLM-powered chatbots for clients using OpenAI GPT, Gemini,
-  and Claude APIs, with LangChain for orchestration, context management, and
-  retrieval-augmented generation over vector-indexed knowledge bases.
+- Built and deployed LLM-powered chatbots for clients on the OpenAI GPT, Gemini,
+  and Claude APIs, handling prompt design, orchestration, and conversational
+  context management.
 - Implemented agentic multi-agent workflows with AutoGen and AgentScope to
   automate complex multi-step business processes; fine-tuned and optimized
   open-source models for latency, cost, and reliability.
 - Developed computer vision and generative AI tooling, including hyper-realistic
-  image and video generation engines served on GPU infrastructure (RunPod).
+  image and video generation engines served on GPU infrastructure.
 - Built production REST APIs with FastAPI and NestJS serving model-inference
   endpoints, backed by PostgreSQL and MySQL, with Next.js frontends.
 - Containerized AI services with Docker and Podman; automated build and release
